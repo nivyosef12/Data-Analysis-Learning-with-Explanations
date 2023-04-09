@@ -3,19 +3,36 @@ import numpy as np
 
 class Law:
     """
-        explanation is a d dimensional vector containing 0 or 1
-        label is a label in some set of possible labels
+        @:param explanation is a d dimensional vector containing 0 or 1
+        @:param label is a label in some set of possible labels
+        @:param feature is a tuple (i, v) where i is in range of 1 to d, and v is {1, -1}
+                            now its {1, 0} -> TODO change?
     """
 
-    def __init__(self, explanation, label):
+    def __init__(self, explanation, label, feature):
         self.explanation = explanation
         self.label = label
+        self.features = np.array(feature)
 
-    def equal(self, explanation):
-        return np.array_equal(self.explanation, explanation)
+    """
+    @:param explanation is a d dimensional vector containing 0 or 1
+    @:return true if for each (i, v) in self.features explanation[i] == v
+    """
+    def isFitting(self, explanation):
+        # create a boolean mask to check if the condition holds true for each (i, v) tuple
+        mask = [explanation[i] == v for i, v in self.features]
+
+        # check if all the values in the boolean mask are True
+        return np.all(mask)
+
+    def updateFeatures(self, discriminative_feature):
+        self.features = np.append(self.features, discriminative_feature)
 
     def getExplanation(self):
         return self.explanation
 
     def getLabel(self):
         return self.label
+
+    def getFeatures(self):
+        return self.features

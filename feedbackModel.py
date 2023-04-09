@@ -3,6 +3,7 @@
 
 import numpy as np
 
+
 class feedbackModel:
 
     def __init__(self, teacher, default_explanation, default_label):
@@ -17,6 +18,7 @@ class feedbackModel:
                                     
         y is a vector of labels, each label y_i correspond with a vector of features x_i in X
     """
+
     def learn(self, X, y):
 
         for feature, label in np.ndier([X, y]):
@@ -48,5 +50,3 @@ class feedbackModel:
                     # self.L.add(new_law)
                     # anything else ???
                     pass
-
-
