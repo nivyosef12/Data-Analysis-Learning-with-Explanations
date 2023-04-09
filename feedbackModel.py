@@ -26,11 +26,11 @@ class feedbackModel:
     def learn(self, X, y):
 
         for features, label in np.ndier([X, y]):
-            found = False
+            # found = False
 
             for law in self.laws:
                 if law.isFitting(features):
-                    found = True
+                    # found = True
                     predication = law.getLabel()
                     explanation = law.getExplanation()
 
@@ -43,9 +43,11 @@ class feedbackModel:
                         # update the law
                         law.updateFeatures(discriminative_feature)
                         # TODO anything else??? , should break???
-                        pass
+                        break
 
-            if not found:
+            # if not found:
+            # this block of code is executed if the inner loop completes without hitting a break statement
+            else:
                 predication = self.default_label
                 explanation = self.default_explanation
 
@@ -65,18 +67,17 @@ class feedbackModel:
 
 for i in range(10):
     for j in range(5):
-        if j == 2:
-            # break out of the inner loop if j == 2
-            break
-        # if j != 2, continue with the rest of the inner loop
-        print(f"i={i}, j={j}")
+        if i < 5 or i > 7:
+            if i < 5:
+                print("break")
+                break
+        print(f"{i}, {j}")
     else:
         # this block of code is executed if the inner loop completes without hitting a break statement
         print("inner loop completed")
-    # continue with the outer loop after the inner loop completes
-    continue
-    # these lines of code are not executed if j == 2
-    print("after inner loop")
+
+    print("------------------")
+
 
 
 """
