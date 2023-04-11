@@ -16,30 +16,37 @@ class feedbackModel:
         self.default_label = default_label
         self.laws = []  # list of laws TODO: maybe use dictionary
 
+        self.teacher.preprocess(self.default_explanation)
     """
-        X is a set of vectors, each vector is a d dimensional vector containing 0 or 1
-                                    representing the features
-                                    
-        y is a vector of labels, each label y_i correspond with a vector of features x_i in X
+        @:param X is a set of vectors, each vector is a d dimensional vector containing 0 or 1
+                representing the features                                    
     """
 
-    def learn(self, X, y):
+    def learn(self, X):
 
-        for features, label in np.ndier([X, y]):
+        for features in X:
+
+            # TODO check if feature changes outside the preprocess function
+            self.teacher.preprocess(features)
+
+            # get prediction and explanation for current example
             predication, explanation, law = self.predict(features)
 
-            if predication != label:
-                # get discriminative feature from teacher
-                discriminative_feature = self.teacher(features, label, explanation, predication)
+            # get real label discriminative feature from teacher
+            true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
+
+            # in case the algorithm to the prediction wrong
+            if predication != true_label:
 
                 if law is None:
                     # update the laws with the new law
-                    new_law = Law(explanation, label, discriminative_feature)
+                    new_law = Law(explanation, true_label, discriminative_feature)
                     self.laws.append(new_law)
 
                 else:
                     # update the law
-                    law.updateFeatures(discriminative_feature)
+                    not_discriminative_feature = (discriminative_feature[0], 1 - discriminative_feature[1])
+                    law.updateFeatures(not_discriminative_feature)
 
     def predict(self, features):
 
@@ -111,6 +118,27 @@ for i in range(10):
                     new_law = Law(explanation, label, discriminative_feature)
                     self.laws.append(new_law)
                     pass
+                    
+                    
+                    ------------------ sec version -----------------
+                    
+    def learn(self, X, y):
+
+        for features, label in np.ndier([X, y]):
+            predication, explanation, law = self.predict(features)
+
+            if predication != label:
+                # get discriminative feature from teacher
+                discriminative_feature = self.teacher(features, label, explanation, predication)
+
+                if law is None:
+                    # update the laws with the new law
+                    new_law = Law(explanation, label, discriminative_feature)
+                    self.laws.append(new_law)
+
+                else:
+                    # update the law
+                    law.updateFeatures(discriminative_feature)
 
 
 """
