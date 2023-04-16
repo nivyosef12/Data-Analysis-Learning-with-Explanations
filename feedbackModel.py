@@ -35,6 +35,9 @@ class feedbackModel:
             # get real label and discriminative feature from teacher
             true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
 
+            print(f"predicted: {predication}, with the explanation of {explanation}\n"
+                  f"the teacher response is: {true_label} with {discriminative_feature} as discriminative feature")
+
             # in case the algorithm to the prediction wrong
             if predication != true_label:
 
@@ -56,8 +59,6 @@ class feedbackModel:
                 predication = law.getLabel()
                 explanation = law.getExplanation()
 
-                print(f"predicted: {predication}, with the explanation of {explanation}")
                 return predication, explanation, law
 
-        print(f"DEFAULT: predicted: {self.default_label}, with the explanation of {self.default_explanation}")
         return self.default_label, self.default_explanation, None
