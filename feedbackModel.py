@@ -22,9 +22,9 @@ class feedbackModel:
                 representing the features                                    
     """
 
-    def learn(self, X, y):
+    def learn(self, X):
 
-        for features, label in np.ndier([X, y]):
+        for features in X:
 
             # TODO check if feature changes outside the preprocess function
             self.teacher.preprocess(features)
@@ -32,11 +32,11 @@ class feedbackModel:
             # get prediction and explanation for current example
             predication, explanation, law = self.predict(features)
 
-            # in case the algorithm to the prediction wrong
-            if predication != label:
+            # get real label and discriminative feature from teacher
+            true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
 
-                # get real label and discriminative feature from teacher
-                true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
+            # in case the algorithm to the prediction wrong
+            if predication != true_label:
 
                 if law is None:
                     # update the laws with the new law
@@ -61,84 +61,3 @@ class feedbackModel:
 
         print(f"DEFAULT: predicted: {self.default_label}, with the explanation of {self.default_explanation}")
         return self.default_label, self.default_explanation, None
-
-
-"""
-
-for i in range(10):
-    for j in range(5):
-        if i < 5 or i > 7:
-            if i < 5:
-                print("break")
-                break
-        print(f"{i}, {j}")
-    else:
-        # this block of code is executed if the inner loop completes without hitting a break statement
-        print("inner loop completed")
-
-    print("------------------")
-
-
-
-    def learn(self, X, y):
-
-        for features, label in np.ndier([X, y]):
-            # found = False
-
-            for law in self.laws:
-                if law.isFitting(features):
-                    # found = True
-                    predication = law.getLabel()
-                    explanation = law.getExplanation()
-
-                    print(f"predicted: {predication}, with the explanation of {explanation}")
-
-                    if predication != label:
-                        # get discriminative feature from teacher
-                        discriminative_feature = self.teacher(features, label, explanation, predication)
-
-                        # update the law
-                        law.updateFeatures(discriminative_feature)
-                        # TODO anything else??? , should break???
-                        break
-
-            # if not found:
-            # this block of code is executed if the inner loop completes without hitting a break statement
-            else:
-                predication = self.default_label
-                explanation = self.default_explanation
-
-                print(f"DEFAULT: predicted: {predication}, with the explanation of {explanation}")
-
-                if predication != label:
-                    # get discriminative feature from teacher
-                    discriminative_feature = self.teacher(features, label, explanation, predication)
-
-                    # update the laws with the new law
-                    new_law = Law(explanation, label, discriminative_feature)
-                    self.laws.append(new_law)
-                    pass
-                    
-                    
-                    ------------------ sec version -----------------
-                    
-    def learn(self, X, y):
-
-        for features, label in np.ndier([X, y]):
-            predication, explanation, law = self.predict(features)
-
-            if predication != label:
-                # get discriminative feature from teacher
-                discriminative_feature = self.teacher(features, label, explanation, predication)
-
-                if law is None:
-                    # update the laws with the new law
-                    new_law = Law(explanation, label, discriminative_feature)
-                    self.laws.append(new_law)
-
-                else:
-                    # update the law
-                    law.updateFeatures(discriminative_feature)
-
-
-"""
