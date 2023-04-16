@@ -22,9 +22,9 @@ class feedbackModel:
                 representing the features                                    
     """
 
-    def learn(self, X):
+    def learn(self, X, y):
 
-        for features in X:
+        for features, label in np.ndier([X, y]):
 
             # TODO check if feature changes outside the preprocess function
             self.teacher.preprocess(features)
@@ -32,11 +32,11 @@ class feedbackModel:
             # get prediction and explanation for current example
             predication, explanation, law = self.predict(features)
 
-            # get real label discriminative feature from teacher
-            true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
-
             # in case the algorithm to the prediction wrong
-            if predication != true_label:
+            if predication != label:
+
+                # get real label and discriminative feature from teacher
+                true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
 
                 if law is None:
                     # update the laws with the new law
