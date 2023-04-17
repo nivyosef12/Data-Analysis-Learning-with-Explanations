@@ -3,6 +3,8 @@ from Teacher import Teacher
 
 
 class Teacher1(Teacher):
+    def __init__(self, X, labels):
+        super().__init__(X, labels)
     """
 
         @:param example is the example the algorithm gets (on each iteration) during the learning phase

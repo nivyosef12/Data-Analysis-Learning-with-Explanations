@@ -36,9 +36,9 @@ class Teacher(ABC):
 
         for i in range(X.shape[1]):
             col = X[:, i]
-
             # Handle missing values
-            col[np.isnan(col)] = 0
+            # TODO handle missing values
+            # col[np.isnan(col)] = 0
 
             if col.dtype == np.bool_:
                 # Boolean attribute
