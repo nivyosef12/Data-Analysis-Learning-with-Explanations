@@ -1,39 +1,47 @@
 # TODO
 # 1. what the hell is C[X] !?!?!?!?!
-# 2. why the fuck is the teacher returns the true label ?!?!?!?!?
-# 3. handle code duplication
 
 import numpy as np
-
-from Law import Law
+import Law
+import Teacher1
+import Teacher2
 
 
 class feedbackModel:
 
-    def __init__(self, teacher, default_explanation, default_label):
-        self.teacher = teacher
+    """
+        @:param X is a set of n vectors, each vector is a d-dimensional vector containing 0 or 1
+                representing the features
+        @:param y is an n-dimensional vector containing the correct labels
+        @:param teacher_type is an integer representing the type of teacher
+        @:param default_explanation TODO: is it necessary?
+        @:param default_label TODO: is it necessary?     
+    """
+    def __init__(self, default_explanation, default_label):
+        
         self.default_explanation = default_explanation
         self.default_label = default_label
         self.laws = []  # list of laws TODO: maybe use dictionary
 
-        self.teacher.preprocess(self.default_explanation)
-    """
-        @:param X is a set of vectors, each vector is a d dimensional vector containing 0 or 1
-                representing the features                                    
-    """
+        # teacher.preprocess(self.default_explanation)
+    
 
-    def learn(self, X):
-
+    def fit(self, X, y, teacher_type=1):
+        
+        teacher_types = {1:Teacher1, 2:Teacher2}
+        if teacher_type not in teacher_types:
+            raise ValueError("Invalid teacher_type value")
+        teacher = teacher_types[teacher_type](X, y)
+        
+        X = teacher.get_X()
+        
         for features in X:
-
-            # TODO check if feature changes outside the preprocess function
-            self.teacher.preprocess(features)
 
             # get prediction and explanation for current example
             predication, explanation, law = self.predict(features)
 
             # get real label and discriminative feature from teacher
-            true_label, discriminative_feature = self.teacher.teach(features, explanation, predication)
+            true_label, discriminative_feature = teacher.teach(features, explanation, predication)
 
             print(f"predicted: {predication}, with the explanation of {explanation}\n"
                   f"the teacher response is: {true_label} with {discriminative_feature} as discriminative feature")
