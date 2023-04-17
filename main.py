@@ -1,4 +1,4 @@
-import feedbackModel
+import feedbackModel as fm
 from pandas import read_csv
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-    model = feedbackModel()
+    model = fm.feedbackModel()
     model.fit(X_train, y_train)
     
     prediction = model.predict(X_test)

@@ -1,9 +1,8 @@
 import numpy as np
-from abc import ABC, abstractmethod
 import Teacher
 
+
 class Teacher2(Teacher):
-        
     """
 
         @:param example is the example the algorithm gets (on each iteration) during the learning phase
@@ -13,5 +12,6 @@ class Teacher2(Teacher):
         
         @:returns a discriminative_feature in case the predication != to the true label
     """
+
     def teach(self, example, explanation, prediction):
         pass
