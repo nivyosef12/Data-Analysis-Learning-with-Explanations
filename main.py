@@ -3,7 +3,7 @@ from pandas import read_csv
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-if __name__ == __main__:
+if __name__ == "__main__":
     # Read the .data file into a Pandas DataFrame, specifying the delimiter
     df = pd.read_csv('zoo.data', delimiter=',')
 
