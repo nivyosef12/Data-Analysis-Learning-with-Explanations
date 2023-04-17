@@ -9,7 +9,7 @@ class Teacher(ABC):
         @:param labels are a label in some set of possible labels corresponding with X
                         i.e. feature[i] are labeled a label[i]
     """
-    def __int__(self, X, labels):
+    def __init__(self, X, labels):
         self.X = self.preprocess(X)
         # self.labels = labels
         
