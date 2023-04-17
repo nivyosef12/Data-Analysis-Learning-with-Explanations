@@ -1,5 +1,5 @@
 import numpy as np
-import Teacher
+from Teacher import Teacher
 
 
 class Teacher2(Teacher):
