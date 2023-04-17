@@ -44,34 +44,35 @@ class Teacher(ABC):
                 # Boolean attribute
                 col_binary = col.astype(int)
 
-            elif col.dtype == object:
-                # Categorical attribute with string values
-                le = LabelEncoder()
-                col_numeric = le.fit_transform(col)
-                col_binary = np.eye(len(np.unique(col_numeric)))[col_numeric]
-
-            # TODO: explain this with comments
-            elif len(np.unique(col)) <= self.max_num_of_feature_categories:
-                # Categorical attribute with few categories
-                unique_values = np.unique(col)
-                num_unique_values = len(unique_values)
-                col_binary = np.zeros((len(col), num_unique_values), dtype=int)
-                for j, unique_value in enumerate(unique_values):
-                    col_binary[col == unique_value, j] = 1
-
             else:
-                # Continuous attribute with many possible values
-                bucket_size = 100 / self.num_of_buckets_for_continuous_features
-                buckets = np.array(range(self.num_of_buckets_for_continuous_features)) * bucket_size
+                if col.dtype == object:
+                    # Categorical attribute with string values
+                    le = LabelEncoder()
+                    col = le.fit_transform(col)
+                    # col_binary = np.eye(len(np.unique(col_numeric)))[col_numeric]
 
-                col_binary = np.empty((len(col), self.num_of_buckets_for_continuous_features))
-                for j in range(buckets.size):
-                    if j < self.num_of_buckets_for_continuous_features - 1:
-                        col_binary[:, j] = np.where(
-                            (col > np.percentile(col, buckets[j])) & (col <= np.percentile(col, buckets[j + 1])),
-                            1, 0)
-                    else:
-                        col_binary[:, j] = np.where(col > np.percentile(col, buckets[j]), 1, 0)
+                # TODO: explain this with comments
+                if len(np.unique(col)) <= self.max_num_of_feature_categories:
+                    # Categorical attribute with few categories
+                    unique_values = np.unique(col)
+                    num_unique_values = len(unique_values)
+                    col_binary = np.zeros((len(col), num_unique_values), dtype=int)
+                    for j, unique_value in enumerate(unique_values):
+                        col_binary[col == unique_value, j] = 1
+
+                else:
+                    # Continuous attribute with many possible values
+                    bucket_size = 100 / self.num_of_buckets_for_continuous_features
+                    buckets = np.array(range(self.num_of_buckets_for_continuous_features)) * bucket_size
+
+                    col_binary = np.empty((len(col), self.num_of_buckets_for_continuous_features))
+                    for j in range(buckets.size):
+                        if j < self.num_of_buckets_for_continuous_features - 1:
+                            col_binary[:, j] = np.where(
+                                (col > np.percentile(col, buckets[j])) & (col <= np.percentile(col, buckets[j + 1])),
+                                1, 0)
+                        else:
+                            col_binary[:, j] = np.where(col > np.percentile(col, buckets[j]), 1, 0)
 
             binary_X = np.column_stack((binary_X, col_binary))
 

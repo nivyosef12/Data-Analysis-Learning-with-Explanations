@@ -41,7 +41,7 @@ class feedbackModel:
         for features in X_legal:
 
             # get prediction and explanation for current example
-            prediction, explanation, law = self.predict(features)
+            prediction, explanation, law = self.__predict(features)
 
             # get real label and discriminative feature from teacher
             true_label, discriminative_feature = teacher.teach(features, explanation, prediction)
@@ -62,7 +62,7 @@ class feedbackModel:
                     not_discriminative_feature = (discriminative_feature[0], 1 - discriminative_feature[1])
                     law.updateFeatures(not_discriminative_feature)
 
-    def predict(self, features):
+    def __predict(self, features):
 
         for law in self.laws:
             if law.isFitting(features):
@@ -73,3 +73,16 @@ class feedbackModel:
                 return prediction, explanation, law
 
         return self.default_label, self.default_explanation, None
+
+
+    def predict(self, X):
+        if self.default_explanation is None:
+            raise ValueError("The model hasn't been fitted yet")
+         
+        prediction = np.empty(X.shape[0])
+        for i in range(X.shape[0]):
+            for law in self.laws:
+                prediction = law.getLabel() if law.isFitting(X[i]) else self.default_label
+
+        return prediction
+                
