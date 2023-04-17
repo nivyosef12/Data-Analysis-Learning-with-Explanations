@@ -1,25 +1,31 @@
 import numpy as np
 from abc import ABC, abstractmethod
 from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
 
 
 class Teacher(ABC):
+    max_num_of_feature_categories = 100
+    num_of_buckets_for_continuous_features = 5
+
     """
         @:param X are a d dimensional vector containing 0 or 1
         @:param labels are a label in some set of possible labels corresponding with X
                         i.e. feature[i] are labeled a label[i]
     """
-    def __init__(self, X, labels):
-        self.X = self.preprocess(X)
-        # self.labels = labels
-        
-        self.features_labels_dict = {}
-        for features, label in zip(self.X, labels):
-            self.features_labels_dict[features] = label
-            
-        self.max_num_of_feature_categories = 10
-        self.num_of_buckets_for_continuous_features = 3
 
+    def __init__(self, X, labels):
+        X_legal = self.preprocess(X)
+
+        # self.labels = labels
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_legal, labels)
+
+        self.features_labels_dict = {}
+        for features, label in zip(self.X_train, labels):
+            if tuple(features) in self.features_labels_dict:
+                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                exit(1)
+            self.features_labels_dict[tuple(features)] = label
 
     """
         Convert non-binary attributes in X to binary attributes.
@@ -30,8 +36,8 @@ class Teacher(ABC):
         @return: binary_X: array, shape (n_samples, n_binary_features)
             Converted binary data.
     """
+
     def preprocess(self, X):
-        
         binary_X = np.empty((X.shape[0], 0))
 
         for i in range(X.shape[1]):
@@ -78,11 +84,11 @@ class Teacher(ABC):
 
         return binary_X
 
+    def get_preprocessed_data(self):
+        return self.X_train, self.X_test, self.y_train, self.y_test
 
-    def get_X(self):
-        return self.X
-    
-    
+
+
     """
 
         @:param example is the example the algorithm gets (on each iteration) during the learning phase
@@ -92,6 +98,10 @@ class Teacher(ABC):
         
         @:returns a discriminative_feature in case the predication != to the true label
     """
+
     @abstractmethod
     def teach(self, example, explanation, prediction):
         pass
+
+    def gettt(self, k):
+        return self.features_labels_dict[k]

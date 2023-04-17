@@ -2,19 +2,15 @@
 # 1. what the hell is C[X] !?!?!?!?!
 
 import numpy as np
-import Law
+from Law import Law
 import Teacher1 as teacher_1
 import Teacher2 as teacher_2
+from sklearn.metrics import accuracy_score
 
 
 class feedbackModel:
     """
-        @:param X is a set of n vectors, each vector is a d-dimensional vector containing 0 or 1
-                representing the features
-        @:param y is an n-dimensional vector containing the correct labels
-        @:param teacher_type is an integer representing the type of teacher
-        @:param default_explanation TODO: is it necessary?
-        @:param default_label TODO: is it necessary?     
+
     """
 
     def __init__(self):
@@ -22,6 +18,11 @@ class feedbackModel:
         self.default_explanation = None
         self.default_label = None
         self.laws = []  # list of laws TODO: maybe use dictionary
+        self.teacher = None
+        self.X_train = None
+        self.X_test = None
+        self.y_train = None
+        self.y_test = None
 
         # teacher.preprocess(self.default_explanation)
 
@@ -30,23 +31,27 @@ class feedbackModel:
         teacher_types = {1: teacher_1.Teacher1, 2: teacher_2.Teacher2}
         if teacher_type not in teacher_types:
             raise ValueError("Invalid teacher_type value")
-        teacher = teacher_types[teacher_type](X, y)
+        self.teacher = teacher_types[teacher_type](X, y)
 
-        X_legal = teacher.get_X()
+        self.X_train, self.X_test, self.y_train, self.y_test = self.teacher.get_preprocessed_data()
 
-        self.default_explanation = X_legal[0]
-        self.default_label = y[0]
+        self.default_explanation = self.X_train[0]
+        self.default_label = self.y_train[0]
+        print(f"---predicted: {self.default_label}, with the explanation of {self.default_explanation}\n")
+        print(f"---{self.teacher.gettt(tuple(self.default_explanation))}")
 
-        for features in X_legal:
+        for features in self.X_train:
 
             # get prediction and explanation for current example
             prediction, explanation, law = self.__predict(features)
+            print(f"predicted: {prediction}, with the explanation of {explanation}\n")
 
             # get real label and discriminative feature from teacher
-            true_label, discriminative_feature = teacher.teach(features, explanation, prediction)
-
+            true_label, discriminative_feature = self.teacher.teach(features, explanation, prediction)
+            print("--------------------------------")
             print(f"predicted: {prediction}, with the explanation of {explanation}\n"
                   f"the teacher response is: {true_label} with {discriminative_feature} as discriminative feature")
+            print(f"law is {law}")
 
             # in case the algorithm to the prediction wrong
             if prediction != true_label:
@@ -58,27 +63,31 @@ class feedbackModel:
 
                 else:
                     # update the law
-                    not_discriminative_feature = (discriminative_feature[0], 1 - discriminative_feature[1])
+                    not_discriminative_feature = np.array([discriminative_feature[0], 1 - discriminative_feature[1]])
                     law.updateFeatures(not_discriminative_feature)
 
     def __predict(self, features):
-
         for law in self.laws:
+            # print(f"\n\n__predict features: {features}")
             if law.isFitting(features):
                 prediction = law.getLabel()
                 explanation = law.getExplanation()
 
                 return prediction, explanation, law
 
+        # print("DID NOT FIND!!!\n")
         return self.default_label, self.default_explanation, None
 
-    def predict(self, X):
+    def test(self):
         if self.default_explanation is None:
             raise ValueError("The model hasn't been fitted yet")
-
-        prediction = np.empty(X.shape[0])
-        for i in range(X.shape[0]):
+        prediction = np.empty(self.X_test.shape[0], dtype=np.array([self.default_label]).dtype)
+        for i in range(self.X_test.shape[0]):
             for law in self.laws:
-                prediction = law.getLabel() if law.isFitting(X[i]) else self.default_label
+                prediction[i] = law.getLabel() if law.isFitting(self.X_test[i]) else self.default_label
 
-        return prediction
+        print(self.default_label)
+        print(f"prediction: {prediction}")
+        accuracy = accuracy_score(self.y_test, prediction)
+        return accuracy
+

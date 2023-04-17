@@ -5,14 +5,14 @@ class Law:
     """
         @:param explanation is a d dimensional vector containing 0 or 1
         @:param label is a label in some set of possible labels
-        @:param feature is a tuple (i, v) where i is in range of 1 to d, and v is {1, -1}
+        @:param discriminative_feature is a tuple (i, v) where i is in range of 1 to d, and v is {1, -1}
                             now its {1, 0} -> TODO change?
     """
 
-    def __init__(self, explanation, label, feature):
+    def __init__(self, explanation, label, discriminative_feature):
         self.explanation = explanation  # TODO needs to be updated?
         self.label = label
-        self.features = np.array(feature)
+        self.discriminative_features = np.array([discriminative_feature], dtype=int).T  # a single column for now
 
     """
     @:param new_sample is a d dimensional vector containing 0 or 1
@@ -21,13 +21,20 @@ class Law:
     """
     def isFitting(self, new_sample):
         # create a boolean mask to check if the condition holds true for each (i, v) tuple
-        mask = [new_sample[i] == v for i, v in self.features]
+        # mask = [new_sample[i] == v for i, v in self.features]
+        # print(f"\n\nself.discriminative_features:\n{self.discriminative_features}")
+        # print(f"self.discriminative_features[1, :]: {self.discriminative_features[1, :]}")
+        # print(f"self.discriminative_features[0, :]: {self.discriminative_features[0, :]}")
+        # print(f"new_sample.size = {new_sample.size}\nnew_sample: {new_sample}\n\n")
+        # print(f"new_sample features: {new_sample[self.discriminative_features[0, :]]}\n\n")
+        mask = np.all(new_sample[self.discriminative_features[0, :]] == self.discriminative_features[1, :])
+        return mask
 
         # check if all the values in the boolean mask are True
-        return np.all(mask)
+        # return np.all(mask)
 
     def updateFeatures(self, discriminative_feature):
-        self.features = np.append(self.features, discriminative_feature)
+        self.discriminative_features = np.hstack((self.discriminative_features, np.array([discriminative_feature], dtype=int).T))
 
     def getExplanation(self):
         return self.explanation
@@ -36,4 +43,4 @@ class Law:
         return self.label
 
     def getFeatures(self):
-        return self.features
+        return self.discriminative_features
