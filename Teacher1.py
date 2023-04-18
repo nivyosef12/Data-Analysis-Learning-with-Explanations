@@ -16,13 +16,12 @@ class Teacher1(Teacher):
     """
 
     def teach(self, example, explanation, prediction):
-        print(example)
         true_label = self.features_labels_dict[tuple(example)]
         if true_label == prediction:
             return true_label, None
 
-        print(f"\ntrue label: {true_label}\nprediction: {prediction}")
-        print(f"example: {example}\nexplanation: {explanation}\nexample != explanation: {example != explanation}\n")
+        # print(f"\ntrue label: {true_label}\nprediction: {prediction}")
+        # print(f"example: {example}\nexplanation: {explanation}\nexample != explanation: {example != explanation}\n")
 
         different_indexes = np.where(example != explanation)[0]
         chosen_index = np.random.choice(different_indexes)

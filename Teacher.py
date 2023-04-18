@@ -1,3 +1,5 @@
+import json
+
 import numpy as np
 from abc import ABC, abstractmethod
 from sklearn.preprocessing import LabelEncoder
@@ -21,11 +23,27 @@ class Teacher(ABC):
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_legal, labels)
 
         self.features_labels_dict = {}
-        for features, label in zip(self.X_train, labels):
+        for features, label in zip(self.X_train, self.y_train):
             if tuple(features) in self.features_labels_dict:
                 print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
+
+        # # Open a file for writing
+        # with open("xandy_train.txt", "w") as file:
+        #     # Iterate over the arrays and write each row to the file
+        #     for i in range(self.X_train.shape[0]):
+        #         X_train_str = str(list(self.X_train[i]))
+        #         y_train_str = str(self.y_train[i])
+        #         row_str = X_train_str + ":" + y_train_str
+        #         file.write(row_str + "\n")
+        #
+        # # Open a file for writing
+        # with open("features_labal_dict.txt", "w") as file:
+        #     # Iterate over the keys and values in the dictionary and write each key-value pair to the file
+        #     for key, value in self.features_labels_dict.items():
+        #         row_str = str(key) + ":" + str(value)
+        #         file.write(row_str + "\n")
 
     """
         Convert non-binary attributes in X to binary attributes.

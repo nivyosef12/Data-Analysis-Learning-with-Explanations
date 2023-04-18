@@ -37,14 +37,15 @@ class feedbackModel:
 
         self.default_explanation = self.X_train[0]
         self.default_label = self.y_train[0]
-        print(f"---predicted: {self.default_label}, with the explanation of {self.default_explanation}\n")
-        print(f"---{self.teacher.gettt(tuple(self.default_explanation))}")
+        # print(f"default: predicted: {self.default_label}, with the explanation of {self.default_explanation}\n")
+        # print(f"teacher.get_label {self.teacher.gettt(tuple(self.default_explanation))}")
 
         for features in self.X_train:
 
             # get prediction and explanation for current example
             prediction, explanation, law = self.__predict(features)
-            print(f"predicted: {prediction}, with the explanation of {explanation}\n")
+            # print(f"predicted: {prediction}, with the explanation of {explanation}\n")
+            # print(f"sending {features} to the teacher")
 
             # get real label and discriminative feature from teacher
             true_label, discriminative_feature = self.teacher.teach(features, explanation, prediction)
@@ -86,7 +87,6 @@ class feedbackModel:
             for law in self.laws:
                 prediction[i] = law.getLabel() if law.isFitting(self.X_test[i]) else self.default_label
 
-        print(self.default_label)
         print(f"prediction: {prediction}")
         accuracy = accuracy_score(self.y_test, prediction)
         return accuracy
