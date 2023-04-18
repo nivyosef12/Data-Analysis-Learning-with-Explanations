@@ -22,11 +22,6 @@ class Law:
     def isFitting(self, new_sample):
         # create a boolean mask to check if the condition holds true for each (i, v) tuple
         # mask = [new_sample[i] == v for i, v in self.features]
-        # print(f"\n\nself.discriminative_features:\n{self.discriminative_features}")
-        # print(f"self.discriminative_features[1, :]: {self.discriminative_features[1, :]}")
-        # print(f"self.discriminative_features[0, :]: {self.discriminative_features[0, :]}")
-        # print(f"new_sample.size = {new_sample.size}\nnew_sample: {new_sample}\n\n")
-        # print(f"new_sample features: {new_sample[self.discriminative_features[0, :]]}\n\n")
         mask = np.all(new_sample[self.discriminative_features[0, :]] == self.discriminative_features[1, :])
         return mask
 

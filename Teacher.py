@@ -25,7 +25,7 @@ class Teacher(ABC):
         self.features_labels_dict = {}
         for features, label in zip(self.X_train, self.y_train):
             if tuple(features) in self.features_labels_dict:
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                print("features override in features_labels_dict")
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 
@@ -121,5 +121,5 @@ class Teacher(ABC):
     def teach(self, example, explanation, prediction):
         pass
 
-    def gettt(self, k):
+    def getLabel(self, k):
         return self.features_labels_dict[k]
