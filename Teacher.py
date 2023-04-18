@@ -29,6 +29,7 @@ class Teacher(ABC):
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 
+        # TODO ------------- delete -------------
         # get frequencies
         y_frequencies = {d: 0 for d in set(labels)}
 
@@ -36,22 +37,7 @@ class Teacher(ABC):
             y_frequencies[i] += 1
 
         print(y_frequencies)
-
-        # # Open a file for writing
-        # with open("xandy_train.txt", "w") as file:
-        #     # Iterate over the arrays and write each row to the file
-        #     for i in range(self.X_train.shape[0]):
-        #         X_train_str = str(list(self.X_train[i]))
-        #         y_train_str = str(self.y_train[i])
-        #         row_str = X_train_str + ":" + y_train_str
-        #         file.write(row_str + "\n")
-        #
-        # # Open a file for writing
-        # with open("features_labal_dict.txt", "w") as file:
-        #     # Iterate over the keys and values in the dictionary and write each key-value pair to the file
-        #     for key, value in self.features_labels_dict.items():
-        #         row_str = str(key) + ":" + str(value)
-        #         file.write(row_str + "\n")
+        # TODO ------------- delete -------------
 
     """
         Convert non-binary attributes in X to binary attributes.

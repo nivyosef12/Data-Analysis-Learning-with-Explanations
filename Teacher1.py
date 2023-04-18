@@ -20,7 +20,6 @@ class Teacher1(Teacher):
         if true_label == prediction:
             return true_label, None
 
-        # print(f"\ntrue label: {true_label}\nprediction: {prediction}")
         # print(f"example: {example}\nexplanation: {explanation}\nexample != explanation: {example != explanation}\n")
 
         different_indexes = np.where(example != explanation)[0]
