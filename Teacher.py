@@ -29,6 +29,14 @@ class Teacher(ABC):
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 
+        # get frequencies
+        y_frequencies = {d: 0 for d in set(labels)}
+
+        for i in labels:
+            y_frequencies[i] += 1
+
+        print(y_frequencies)
+
         # # Open a file for writing
         # with open("xandy_train.txt", "w") as file:
         #     # Iterate over the arrays and write each row to the file
