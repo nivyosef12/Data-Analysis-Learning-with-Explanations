@@ -46,7 +46,8 @@ class feedbackModel:
         # self.default_label = self.y_train[0]
         print(self.default_label)
 
-        for features in self.X_train:
+        # np.random.shuffle(self.X_train)
+        for features in np.random.permutation(self.X_train):
 
             # get prediction and explanation for current example
             # print("xt")

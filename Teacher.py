@@ -27,7 +27,7 @@ class Teacher(ABC):
             if tuple(features) in self.features_labels_dict:
                 print("features override in features_labels_dict")
                 exit(1)
-            self.features_labels_dict[tuple(features)] = label
+            self.features_labels_dict[tuple(features.tolist())] = label
 
         # get frequencies
         y_frequencies = {d: 0 for d in set(labels)}
@@ -130,4 +130,5 @@ class Teacher(ABC):
         pass
 
     def getLabel(self, k):
-        return self.features_labels_dict[k]
+        return self.features_labels_dict[tuple(k.tolist())]
+
