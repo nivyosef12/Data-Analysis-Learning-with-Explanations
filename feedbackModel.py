@@ -73,13 +73,14 @@ class feedbackModel:
             print(f"law-> label = {law.getLabel()}\n"
                   f"      features = {law.getFeatures()}\n"
                   f"      explanation =  {law.getExplanation()}\n")
+
         for p, l in zip(prediction_list, y):
             answer = "RIGHT" if p == l else "WRONG"
             print(f"prediction: {p},\ttrue label: {l}\t--> {answer}")
 
         num_of_example = y.shape[0]
         print(f"\npercentage of mistake on the entire data set: {self.num_of_mistakes} / {num_of_example} ="
-              f" {(self.num_of_mistakes / num_of_example) * 100} %")
+              f" {(self.num_of_mistakes / num_of_example) * 100}%")
 
         examples_seen = [i + 1 for i in range(num_of_example)]
 

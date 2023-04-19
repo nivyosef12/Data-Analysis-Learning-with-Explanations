@@ -78,14 +78,15 @@ class feedbackModel:
 
         if self.default_explanation is None:
             raise ValueError("The model hasn't been fitted yet")
+
         prediction = np.empty(self.X_test.shape[0], dtype=np.array([self.default_label]).dtype)
         for i in range(self.X_test.shape[0]):
-            # for generating the graph
-            self.mistakes_made.append(self.num_of_mistakes)
-
             prediction[i] = self.__predict(self.X_test[i])[0]
             if prediction[i] != self.y_test[i]:
                 self.num_of_mistakes += 1
+
+            # for generating the graph
+            self.mistakes_made.append(self.num_of_mistakes)
 
         print("\n-------------------- printing list of laws --------------------\n")
         for law in self.laws:
@@ -98,7 +99,7 @@ class feedbackModel:
 
         num_of_example = self.y_test.shape[0] + self.y_train.shape[0]
         print(f"\npercentage of mistake on the entire data set: {self.num_of_mistakes} / {num_of_example} ="
-              f" {(self.num_of_mistakes / num_of_example) * 100} %")
+              f" {(self.num_of_mistakes / num_of_example) * 100}%")
         examples_seen = [i + 1 for i in range(num_of_example)]
 
         # calculate the percentage of mistakes made

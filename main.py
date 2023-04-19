@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     without_splitting_data = True
     # # uncomment for splitted data run
-    # uncomment THIS line: # from TeacherWithSplittedData import Teacher from Teacher1, Teacher2
+    # # uncomment THIS line: # from TeacherWithSplittedData import Teacher from Teacher1, Teacher2
     # without_splitting_data = False
 
     if without_splitting_data:
