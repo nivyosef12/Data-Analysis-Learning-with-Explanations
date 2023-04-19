@@ -29,16 +29,6 @@ class Teacher(ABC):
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 
-        # TODO ------------- delete -------------
-        # get frequencies
-        y_frequencies = {d: 0 for d in set(labels)}
-
-        for i in labels:
-            y_frequencies[i] += 1
-
-        print(y_frequencies)
-        # TODO ------------- delete -------------
-
     """
         Convert non-binary attributes in X to binary attributes.
 
@@ -98,8 +88,6 @@ class Teacher(ABC):
 
     def get_preprocessed_data(self):
         return self.X_train, self.X_test, self.y_train, self.y_test
-
-
 
     """
 

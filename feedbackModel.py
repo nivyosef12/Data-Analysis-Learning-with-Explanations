@@ -31,17 +31,9 @@ class feedbackModel:
         self.teacher = teacher_types[teacher_type](X, y)
 
         self.X_train, self.X_test, self.y_train, self.y_test = self.teacher.get_preprocessed_data()
-        # TODO ------------- delete -------------
-        zero_indices = np.where(self.y_train == 3)[0]  # Get the indices where y is 0
-        random_index = np.random.choice(zero_indices)  # Choose a random index from the zero indices
 
-        # Access the corresponding values of x and y using the random_index
-        self.default_explanation = self.X_train[random_index]
-        self.default_label = self.y_train[random_index]
-        # TODO ------------- delete -------------
-
-        # self.default_explanation = self.X_train[0]
-        # self.default_label = self.y_train[0]
+        self.default_explanation = self.X_train[0]
+        self.default_label = self.y_train[0]
         print(self.default_label)
 
         # np.random.shuffle(self.X_train)
@@ -54,7 +46,6 @@ class feedbackModel:
             # print("--------------------------------")
             # print(f"predicted: {prediction}, with the explanation of {explanation}\n"
             #       f"the teacher response is: {true_label} with {discriminative_feature} as discriminative feature")
-            # print(f"law is {law}")
 
             # in case the algorithm to the prediction wrong
             if prediction != true_label:
@@ -83,19 +74,10 @@ class feedbackModel:
             raise ValueError("The model hasn't been fitted yet")
         prediction = np.empty(self.X_test.shape[0], dtype=np.array([self.default_label]).dtype)
         for i in range(self.X_test.shape[0]):
-            for law in self.laws:
-                prediction[i] = law.getLabel() if law.isFitting(self.X_test[i]) else self.default_label
+            prediction[i] = self.__predict(self.X_test[i])[0]
 
         print(f"prediction: {prediction}")
-
-        # TODO ------------- delete -------------
-        prediction_frequencies = {d: 0 for d in set(prediction)}
-
-        for i in prediction:
-            prediction_frequencies[i] += 1
-
-        print(prediction_frequencies)
-        # TODO ------------- delete -------------
+        print(f"labels:     {self.y_test}")
 
         accuracy = accuracy_score(self.y_test, prediction)
         return accuracy
