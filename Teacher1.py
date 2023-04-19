@@ -1,5 +1,6 @@
 import numpy as np
 from Teacher import Teacher
+# from TeacherWithSplittedData import Teacher
 
 
 class Teacher1(Teacher):

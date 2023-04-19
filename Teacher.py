@@ -1,5 +1,3 @@
-import json
-
 import numpy as np
 from abc import ABC, abstractmethod
 from sklearn.preprocessing import LabelEncoder
@@ -17,13 +15,10 @@ class Teacher(ABC):
     """
 
     def __init__(self, X, labels):
-        X_legal = self.preprocess(X)
-
-        # self.labels = labels
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_legal, labels)
+        self.X = self.preprocess(X)
 
         self.features_labels_dict = {}
-        for features, label in zip(self.X_train, self.y_train):
+        for features, label in zip(self.X, labels):
             if tuple(features) in self.features_labels_dict:
                 print("features override in features_labels_dict")
                 exit(1)
@@ -87,7 +82,7 @@ class Teacher(ABC):
         return binary_X
 
     def get_preprocessed_data(self):
-        return self.X_train, self.X_test, self.y_train, self.y_test
+        return self.X
 
     """
 
