@@ -17,7 +17,7 @@ class Law:
     """
     @:param new_sample is a d dimensional vector containing 0 or 1
                 IMPORTANT -> new_sample is already preprocessed!!!
-    @:return true if for each (i, v) in self.features new_sample[i] == v
+    @:return true if for each (i, v) in self.discriminative_features new_sample[i] == v
     """
     def isFitting(self, new_sample):
         # create a boolean mask to check if the condition holds true for each (i, v) tuple
@@ -25,9 +25,6 @@ class Law:
 
         mask = np.all(new_sample[self.discriminative_features[0, :]] == self.discriminative_features[1, :])
         return mask
-
-        # check if all the values in the boolean mask are True
-        # return np.all(mask)
 
     def updateFeatures(self, discriminative_feature):
         self.discriminative_features = np.hstack((self.discriminative_features, np.array([discriminative_feature], dtype=int).T))

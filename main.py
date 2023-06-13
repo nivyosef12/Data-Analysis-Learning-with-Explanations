@@ -1,5 +1,4 @@
-# TODO features_labels_dict!!!!!!!!!!!!!!
-# TODO when testing and the example doesnt satisfy any law, predict the label of the law that is closest
+# TODO suffle thr dataset before learning!
 
 import feedbackModel as fm
 import feedbackModelWithSplittedData as fm_splitted_data
@@ -21,7 +20,7 @@ if __name__ == "__main__":
 
     if without_splitting_data:
         model = fm.feedbackModel()
-        model.fit(X, y)
+        model.fit(X, y, 1)
 
     else:
         model = fm_splitted_data.feedbackModel()

@@ -21,8 +21,9 @@ class Teacher1(Teacher):
         if true_label == prediction:
             return true_label, None
 
+        # get random discriminative feature
         different_indexes = np.where(example != explanation)[0]
         chosen_index = np.random.choice(different_indexes)
-        return true_label, [chosen_index, example[chosen_index]]  # TODO return tuple?
+        return true_label, [chosen_index, example[chosen_index]]
 
 

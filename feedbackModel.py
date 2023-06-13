@@ -1,6 +1,3 @@
-# TODO
-# 1. what the hell is C[X] !?!?!?!?!
-
 import numpy as np
 import matplotlib.pyplot as plt
 from Law import Law
@@ -44,7 +41,7 @@ class feedbackModel:
             # predict
             prediction, explanation, law = self.__predict(features)
 
-            # get real label and discriminative feature from teacher
+            # get true label and discriminative feature from teacher
             true_label, discriminative_feature = self.teacher.teach(features, explanation, prediction)
             print("-------------------- curr iteration information --------------------")
             print(f"the example: {features}\n"

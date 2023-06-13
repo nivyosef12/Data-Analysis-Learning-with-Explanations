@@ -5,8 +5,9 @@ from sklearn.model_selection import train_test_split
 
 
 class Teacher(ABC):
-    max_num_of_feature_categories = 100
-    num_of_buckets_for_continuous_features = 5
+    max_num_of_feature_categories = 100 # max number of categories that we consider  as discrete
+    num_of_buckets_for_continuous_features = 100 # number of buckets we create for continuous value categories
+
 
     """
         @:param X are a d dimensional vector containing 0 or 1
@@ -19,6 +20,8 @@ class Teacher(ABC):
 
         self.features_labels_dict = {}
         for features, label in zip(self.X, labels):
+
+            # by putting continuous values in buckets, we might end up with 2 identical feature vectors with different labels
             if tuple(features) in self.features_labels_dict:
                 print("features override in features_labels_dict")
                 exit(1)
@@ -39,9 +42,7 @@ class Teacher(ABC):
 
         for i in range(X.shape[1]):
             col = X[:, i]
-            # Handle missing values
             # TODO handle missing values
-            # col[np.isnan(col)] = 0
 
             if col.dtype == np.bool_:
                 # Boolean attribute
