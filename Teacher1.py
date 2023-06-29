@@ -1,5 +1,6 @@
 import numpy as np
 from Teacher import Teacher
+# from TeacherWithSplittedData import Teacher
 
 
 class Teacher1(Teacher):
@@ -20,11 +21,9 @@ class Teacher1(Teacher):
         if true_label == prediction:
             return true_label, None
 
-        # print(f"\ntrue label: {true_label}\nprediction: {prediction}")
-        # print(f"example: {example}\nexplanation: {explanation}\nexample != explanation: {example != explanation}\n")
-
+        # get random discriminative feature
         different_indexes = np.where(example != explanation)[0]
         chosen_index = np.random.choice(different_indexes)
-        return true_label, [chosen_index, example[chosen_index]]  # TODO return tuple?
+        return true_label, [chosen_index, example[chosen_index]]
 
 

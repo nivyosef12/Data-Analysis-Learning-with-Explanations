@@ -5,9 +5,8 @@ from sklearn.model_selection import train_test_split
 
 
 class Teacher(ABC):
-    max_num_of_feature_categories = 100 # max number of categories that we consider  as discrete
-    num_of_buckets_for_continuous_features = 100 # number of buckets we create for continuous value categories
-
+    max_num_of_feature_categories = 100
+    num_of_buckets_for_continuous_features = 5
 
     """
         @:param X are a d dimensional vector containing 0 or 1
@@ -16,12 +15,12 @@ class Teacher(ABC):
     """
 
     def __init__(self, X, labels):
-        self.X = self.preprocess(X)
+        X_legal = self.preprocess(X)
+
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_legal, labels)
 
         self.features_labels_dict = {}
-        for features, label in zip(self.X, labels):
-
-            # by putting continuous values in buckets, we might end up with 2 identical feature vectors with different labels
+        for features, label in zip(self.X_train, self.y_train):
             if tuple(features) in self.features_labels_dict:
                 print("features override in features_labels_dict")
                 exit(1)
@@ -42,7 +41,9 @@ class Teacher(ABC):
 
         for i in range(X.shape[1]):
             col = X[:, i]
+            # Handle missing values
             # TODO handle missing values
+            # col[np.isnan(col)] = 0
 
             if col.dtype == np.bool_:
                 # Boolean attribute
@@ -83,7 +84,7 @@ class Teacher(ABC):
         return binary_X
 
     def get_preprocessed_data(self):
-        return self.X
+        return self.X_train, self.X_test, self.y_train, self.y_test
 
     """
 
@@ -91,7 +92,7 @@ class Teacher(ABC):
                 IMPORTANT -> example is already preprocessed!!!
         @:param explanation is the explanation of the algorithm to its predication
         @:param prediction is the algorithm prediction for the example
-        
+
         @:returns a discriminative_feature in case the predication != to the true label
     """
 
