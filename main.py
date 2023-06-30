@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     if without_splitting_data:
         model = fm.feedbackModel()
-        model.fit(X, y, 1)
+        model.fit(X, y, 3)
 
     else:
         model = fm_splitted_data.feedbackModel()

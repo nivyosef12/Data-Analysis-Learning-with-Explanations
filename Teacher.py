@@ -2,6 +2,7 @@ import numpy as np
 from abc import ABC, abstractmethod
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.impute import SimpleImputer
 
 
 class Teacher(ABC):
@@ -38,11 +39,15 @@ class Teacher(ABC):
     """
 
     def preprocess(self, X):
+        
+        # impute missing values
+        imputer = SimpleImputer(strategy='mean')
+        imputer.fit_transform(X)
+        
         binary_X = np.empty((X.shape[0], 0))
 
         for i in range(X.shape[1]):
             col = X[:, i]
-            # TODO handle missing values
 
             if col.dtype == np.bool_:
                 # Boolean attribute

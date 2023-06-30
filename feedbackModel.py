@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from Law import Law
-import Teacher1 as teacher_1
-import Teacher2 as teacher_2
+from Teacher1 import Teacher1
+from Teacher2 import Teacher2
+from Teacher3 import Teacher3
 from sklearn.metrics import accuracy_score
-
+from sklearn.utils import shuffle
 
 class feedbackModel:
 
@@ -18,13 +19,15 @@ class feedbackModel:
         self.mistakes_made = []
 
     def fit(self, X, y, teacher_type=1):
+        # shuffle the data
+        X, y = shuffle(X, y)
 
-        teacher_types = {1: teacher_1.Teacher1, 2: teacher_2.Teacher2}
+        teacher_types = {1: Teacher1, 2: Teacher2, 3:Teacher3}
         if teacher_type not in teacher_types:
             raise ValueError("Invalid teacher_type value")
 
         # initialize teacher
-        self.teacher = teacher_types[teacher_type](X, y)
+        self.teacher = teacher_types[teacher_type](X[indexes], y[indexes])
 
         # get processed data from teacher
         preprocessed_data = self.teacher.get_preprocessed_data()
@@ -65,6 +68,39 @@ class feedbackModel:
             self.mistakes_made.append(self.num_of_mistakes)
             prediction_list.append(prediction)
 
+        self.plot_and_print(prediction_list, y)
+        
+        # print("\n-------------------- printing list of laws --------------------\n")
+        # for law in self.laws:
+        #     print(f"law-> label = {law.getLabel()}\n"
+        #           f"      features = {law.getFeatures()}\n"
+        #           f"      explanation =  {law.getExplanation()}\n")
+
+        # for p, l in zip(prediction_list, y):
+        #     answer = "RIGHT" if p == l else "WRONG"
+        #     print(f"prediction: {p},\ttrue label: {l}\t--> {answer}")
+
+        # num_of_example = y.shape[0]
+        # print(f"\npercentage of mistake on the entire data set: {self.num_of_mistakes} / {num_of_example} ="
+        #       f" {(self.num_of_mistakes / num_of_example) * 100}%")
+
+        # examples_seen = [i + 1 for i in range(num_of_example)]
+
+        # # calculate the percentage of mistakes made
+        # percent_mistakes = [(m / e) * 100 for m, e in zip(self.mistakes_made, examples_seen)]
+
+        # # create a line plot
+        # plt.plot(examples_seen, percent_mistakes)
+
+        # # set the title and axis labels
+        # plt.title("Mistakes made over time")
+        # plt.xlabel("Examples seen")
+        # plt.ylabel("Percentage of mistakes")
+
+        # # save as .png file
+        # plt.savefig("mistakes_over_time.png")
+        
+    def plot_and_print(self, prediction_list, y):
         print("\n-------------------- printing list of laws --------------------\n")
         for law in self.laws:
             print(f"law-> label = {law.getLabel()}\n"
