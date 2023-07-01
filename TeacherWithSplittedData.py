@@ -37,14 +37,16 @@ class Teacher(ABC):
     """
 
     def preprocess(self, X):
+        
+        # impute missing values
+        imputer = SimpleImputer(strategy='most_frequent')
+        imputer.fit_transform(X)
+        
         binary_X = np.empty((X.shape[0], 0))
 
         for i in range(X.shape[1]):
             col = X[:, i]
-            # Handle missing values
-            # TODO handle missing values
-            # col[np.isnan(col)] = 0
-
+            
             if col.dtype == np.bool_:
                 # Boolean attribute
                 col_binary = col.astype(int)
@@ -56,15 +58,14 @@ class Teacher(ABC):
                     col = le.fit_transform(col)
                     # col_binary = np.eye(len(np.unique(col_numeric)))[col_numeric]
 
-                # TODO: explain this with comments
-                if len(np.unique(col)) <= self.max_num_of_feature_categories:
+                unique_values = np.unique(col)  # the unique values in this column
+                if len(unique_values) <= self.max_num_of_feature_categories:
                     # Categorical attribute with few categories
-                    unique_values = np.unique(col)
-                    num_unique_values = len(unique_values)
-                    col_binary = np.zeros((len(col), num_unique_values), dtype=int)
+                    col_binary = np.zeros((len(col), len(unique_values)), dtype=int)  # create a zero matrix with a column for every unique value
                     for j, unique_value in enumerate(unique_values):
-                        col_binary[col == unique_value, j] = 1
-
+                        # write 1 in the column that corresponds to the enumeration of the unique value
+                        col_binary[col == unique_value, j] = 1 
+                        
                 else:
                     # Continuous attribute with many possible values
                     bucket_size = 100 / self.num_of_buckets_for_continuous_features
@@ -95,7 +96,6 @@ class Teacher(ABC):
 
         @:returns a discriminative_feature in case the predication != to the true label
     """
-
     @abstractmethod
     def teach(self, example, explanation, prediction):
         pass

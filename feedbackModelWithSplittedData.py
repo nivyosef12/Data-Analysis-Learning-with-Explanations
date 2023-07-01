@@ -1,6 +1,3 @@
-# TODO
-# 1. what the hell is C[X] !?!?!?!?!
-
 import numpy as np
 import matplotlib.pyplot as plt
 from Law import Law
@@ -15,7 +12,7 @@ class feedbackModel:
 
         self.default_explanation = None
         self.default_label = None
-        self.laws = []  # list of laws TODO: maybe use dictionary
+        self.laws = []  # list of laws
         self.teacher = None
         self.X_train = None
         self.X_test = None

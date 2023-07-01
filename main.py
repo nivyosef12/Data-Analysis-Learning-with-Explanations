@@ -1,5 +1,3 @@
-# TODO suffle thr dataset before learning!
-
 import feedbackModel as fm
 import feedbackModelWithSplittedData as fm_splitted_data
 from pandas import read_csv
@@ -19,8 +17,12 @@ if __name__ == "__main__":
     # without_splitting_data = False
 
     if without_splitting_data:
-        model = fm.feedbackModel()
-        model.fit(X, y, 3)
+        i = 0
+        while(True):
+            f_name = f"output{i}.txt"
+            model = fm.feedbackModel(output_file_name=f_name)
+            model.fit(X, y, 2)
+            i += 1
 
     else:
         model = fm_splitted_data.feedbackModel()

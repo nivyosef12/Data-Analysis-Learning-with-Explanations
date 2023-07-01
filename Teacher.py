@@ -9,13 +9,11 @@ class Teacher(ABC):
     max_num_of_feature_categories = 100 # max number of categories that we consider  as discrete
     num_of_buckets_for_continuous_features = 100 # number of buckets we create for continuous value categories
 
-
     """
         @:param X are a d dimensional vector containing 0 or 1
         @:param labels are a label in some set of possible labels corresponding with X
                         i.e. feature[i] are labeled a label[i]
     """
-
     def __init__(self, X, labels):
         self.X = self.preprocess(X)
 
@@ -28,6 +26,7 @@ class Teacher(ABC):
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 
+
     """
         Convert non-binary attributes in X to binary attributes.
 
@@ -37,11 +36,10 @@ class Teacher(ABC):
         @return: binary_X: array, shape (n_samples, n_binary_features)
             Converted binary data.
     """
-
     def preprocess(self, X):
         
         # impute missing values
-        imputer = SimpleImputer(strategy='mean')
+        imputer = SimpleImputer(strategy='most_frequent')
         imputer.fit_transform(X)
         
         binary_X = np.empty((X.shape[0], 0))
@@ -60,14 +58,13 @@ class Teacher(ABC):
                     col = le.fit_transform(col)
                     # col_binary = np.eye(len(np.unique(col_numeric)))[col_numeric]
 
-                # TODO: explain this with comments
-                if len(np.unique(col)) <= self.max_num_of_feature_categories:
+                unique_values = np.unique(col)  # the unique values in this column
+                if len(unique_values) <= self.max_num_of_feature_categories:
                     # Categorical attribute with few categories
-                    unique_values = np.unique(col)
-                    num_unique_values = len(unique_values)
-                    col_binary = np.zeros((len(col), num_unique_values), dtype=int)
+                    col_binary = np.zeros((len(col), len(unique_values)), dtype=int)  # create a zero matrix with a column for every unique value
                     for j, unique_value in enumerate(unique_values):
-                        col_binary[col == unique_value, j] = 1
+                        # write 1 in the column that corresponds to the enumeration of the unique value
+                        col_binary[col == unique_value, j] = 1 
 
                 else:
                     # Continuous attribute with many possible values
@@ -87,11 +84,12 @@ class Teacher(ABC):
 
         return binary_X
 
+    
     def get_preprocessed_data(self):
         return self.X
 
-    """
 
+    """
         @:param example is the example the algorithm gets (on each iteration) during the learning phase
                 IMPORTANT -> example is already preprocessed!!!
         @:param explanation is the explanation of the algorithm to its predication
@@ -99,7 +97,6 @@ class Teacher(ABC):
         
         @:returns a discriminative_feature in case the predication != to the true label
     """
-
     @abstractmethod
     def teach(self, example, explanation, prediction):
         pass
