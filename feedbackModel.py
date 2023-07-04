@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from Law import Law
 from Teacher1 import Teacher1
 from Teacher2 import Teacher2
@@ -11,7 +10,7 @@ from tqdm import tqdm
 
 class feedbackModel:
 
-    def __init__(self, output_file_name="output.txt", png_file_name="mistakes_over_time.png"):
+    def __init__(self, output_file_name="output.txt", optimized=False):
 
         self.default_explanation = None
         self.default_label = None
@@ -20,8 +19,8 @@ class feedbackModel:
         self.num_of_mistakes = 0
         self.mistakes_made = []
         self.output_file_name = output_file_name
-        self.png_file_name = png_file_name
         self.f = None
+        self.optimized = optimized
         
     def fit(self, X, y, teacher_type=1):
         # open output file
@@ -57,7 +56,10 @@ class feedbackModel:
         self.f.write("-------------------- training --------------------\n\n")
         for features in tqdm(preprocessed_data):
             # predict
-            prediction, explanation, law = self.__predict(features)
+            if self.optimized:
+                prediction, explanation, law = self.__predict2(features)
+            else:
+                prediction, explanation, law = self.__predict(features)
 
             # get true label and discriminative feature from teacher
             true_label, discriminative_feature = self.teacher.teach(features, explanation, prediction)
@@ -71,7 +73,7 @@ class feedbackModel:
                 self.num_of_mistakes += 1
                 if law is None:
                     # create new law
-                    new_law = Law(explanation, true_label, discriminative_feature)
+                    new_law = Law(features, true_label, discriminative_feature)
                     self.laws.append(new_law)
 
                 else:
@@ -83,19 +85,23 @@ class feedbackModel:
             self.mistakes_made.append(self.num_of_mistakes)
             prediction_list.append(prediction)
 
-        self.plotAndPrint(prediction_list, y)
+        examples_seen, percent_mistakes = self.plotAndPrint(prediction_list, y)
         
         # close the putput file
         self.f.close()
         
+        return examples_seen, percent_mistakes
+        
         
     def plotAndPrint(self, prediction_list, y):
-        self.f.write("\n-------------------- printing list of laws --------------------\n")
-        for law in self.laws:
-            self.f.write(f"law-> label = {law.getLabel()}\n"
-                  f"      features =\n{law.getFeatures()}\n"
-                  f"      explanation =\n{law.getExplanation()}\n")
-
+        # self.f.write("\n-------------------- printing list of laws --------------------\n")
+        # for law in self.laws:
+        #     self.f.write(f"law-> label = {law.getLabel()}\n"
+        #           f"      features =\n{law.getFeatures()}\n"
+        #           f"      explanation =\n{law.getExplanation()}\n")
+        
+        
+        self.f.write("\n-------------------- printing the final decision list --------------------\n")
         for p, l in zip(prediction_list, y):
             answer = "RIGHT" if p == l else "WRONG"
             self.f.write(f"prediction: {p},\ttrue label: {l}\t--> {answer}\n")
@@ -109,22 +115,9 @@ class feedbackModel:
         # calculate the percentage of mistakes made
         percent_mistakes = [(m / e) * 100 for m, e in zip(self.mistakes_made, examples_seen)]
 
-        # if there is more than one figure, make sure we plot on the last one created
-        last_figure = plt.gcf()
-        plt.figure(last_figure.number)  # Set the current figure to the last one
-        
-        # create a line plot
-        plt.plot(examples_seen, percent_mistakes)
+        return examples_seen, percent_mistakes
 
-        # set the title and axis labels
-        plt.title("Mistakes made over time")
-        plt.xlabel("Examples seen")
-        plt.ylabel("Percentage of mistakes")
 
-        # save as .png file
-        plt.savefig(self.png_file_name)
-
-    
     def __predict(self, features):
         for law in self.laws:
             if law.isFitting(features):

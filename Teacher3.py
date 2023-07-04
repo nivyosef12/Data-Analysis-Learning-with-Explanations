@@ -3,7 +3,6 @@ from Teacher import Teacher
 from Teacher1 import Teacher1
 from Teacher2 import Teacher2
 from random import choice, sample, randrange
-# from TeacherWithSplittedData import Teacher
 
 
 class Teacher3(Teacher):
