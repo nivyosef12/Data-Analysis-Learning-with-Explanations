@@ -17,9 +17,6 @@ class Teacher1(Teacher):
     """
     def teach(self, example, explanation, prediction):
         true_label = self.features_labels_dict[tuple(example)]
-        # print(f"the example: {example}\n"
-        #           f"predicted: {prediction}, with the explanation of\n{explanation}\n"
-        #           f"the teacher response is: {true_label}\n")
 
         if true_label == prediction:
             return true_label, None

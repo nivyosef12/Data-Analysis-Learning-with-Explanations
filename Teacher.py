@@ -17,10 +17,7 @@ class Teacher(ABC):
         self.max_num_of_feature_categories = max_num_of_feature_categories  
         self.num_of_buckets_for_continuous_features = num_of_buckets_for_continuous_features  
         
-        # print(f"X.shape before = {X.shape}")
         self.X = self.preprocess(X)
-        # print(f"X.shape after = {self.X.shape}")
-        
         self.features_labels_dict = {}
         for features, label in zip(self.X, labels):
 

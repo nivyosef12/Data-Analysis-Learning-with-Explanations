@@ -48,13 +48,12 @@ class feedbackModel:
         self.default_label = shuffled_y[i]
         self.default_explanation = preprocessed_data[i]
         
-        # print(f"default_label = {self.default_label}\ndefault explanation =\n{self.default_explanation}\n")
-
         # initialize prediction list for debugging purposes
         prediction_list = []
 
         self.f.write("-------------------- training --------------------\n\n")
         for features in tqdm(preprocessed_data):
+            
             # predict
             if self.optimized:
                 prediction, explanation, law = self.__predict2(features)
@@ -87,20 +86,13 @@ class feedbackModel:
 
         examples_seen, percent_mistakes = self.plotAndPrint(prediction_list, y)
         
-        # close the putput file
+        # close the output file
         self.f.close()
         
         return examples_seen, percent_mistakes
         
         
     def plotAndPrint(self, prediction_list, y):
-        # self.f.write("\n-------------------- printing list of laws --------------------\n")
-        # for law in self.laws:
-        #     self.f.write(f"law-> label = {law.getLabel()}\n"
-        #           f"      features =\n{law.getFeatures()}\n"
-        #           f"      explanation =\n{law.getExplanation()}\n")
-        
-        
         self.f.write("\n-------------------- printing the final decision list --------------------\n")
         for p, l in zip(prediction_list, y):
             answer = "RIGHT" if p == l else "WRONG"
@@ -148,12 +140,5 @@ class feedbackModel:
                 closest_pred = prediction
                 closest_expl = explanation
                 closest_law = law
-                
-        # print(f"\n\nexample = {features}\n")
-        
-        # if closest_law:
-        #     print(f"law-> explanation =\n{closest_law.getExplanation()}\n"
-        #         f"      features =\n{closest_law.getFeatures()}\n"
-        #         f"      label = {closest_law.getLabel()}\n")
         
         return closest_pred, closest_expl, None

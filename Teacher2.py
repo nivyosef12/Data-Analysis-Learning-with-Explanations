@@ -23,10 +23,7 @@ class Teacher2(Teacher):
             
         if true_label == prediction:
             return true_label, None
-
-        # print(f"\ntrue label: {true_label}\nprediction: {prediction}")
-        # print(f"example: {example}\nexplanation: {explanation}\nexample != explanation: {example != explanation}\n")
-
+        
         chosen_discriminative_feature = self.mostDiscriminativeFeature(example, explanation, prediction, true_label)
         return true_label, chosen_discriminative_feature  
 
@@ -42,16 +39,14 @@ class Teacher2(Teacher):
     """
     def mostDiscriminativeFeature(self, example, explanation, prediction, true_label):
         different_indexes = np.where(example != explanation)[0]
-        # print(f"--------------------------------------\ndifferent indexes: {different_indexes}\n")
         max_difference = 0
         chosen_discriminative_feature = None
         for i in different_indexes:
             difference = self.discriminativeFeatureScore(example, prediction, true_label, i)
+           
             if difference >= max_difference:
-                # print(f"difference for index {i} is {difference}\n")
                 max_difference = difference
                 chosen_discriminative_feature = [i, example[i]]
-        # print(f"max difference = {max_difference}, chosen_discriminative_feature = {chosen_discriminative_feature}\n")
         
         if max_difference != 0 and chosen_discriminative_feature is None:
             print("\nproblem!!\n")
@@ -72,6 +67,7 @@ class Teacher2(Teacher):
     def discriminativeFeatureScore(self, example, prediction, true_label, i):
         num_of_stsfyng_exmpls_with_prediction = len(
             {k: v for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == prediction})
+       
         num_of_stsfyng_exmpls_with_true_label = len(
             {k: v for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == true_label})
 
