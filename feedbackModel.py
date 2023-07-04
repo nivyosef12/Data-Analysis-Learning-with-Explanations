@@ -5,8 +5,9 @@ from Teacher1 import Teacher1
 from Teacher2 import Teacher2
 from Teacher3 import Teacher3
 from sklearn.metrics import accuracy_score
-from sklearn.utils import shuffle
+# from sklearn.utils import shuffle
 from random import randint
+from tqdm import tqdm
 
 class feedbackModel:
 
@@ -28,7 +29,10 @@ class feedbackModel:
         self.f.truncate(0)  # erase the contents of the file if it already existed
         
         # shuffle the data
-        shuffled_X, shuffled_y = shuffle(X, y)
+        indexes = np.arange(y.shape[0])
+        np.random.shuffle(indexes)
+        shuffled_X = X[indexes]
+        shuffled_y = y[indexes]
 
         teacher_types = {1: Teacher1, 2: Teacher2, 3:Teacher3}
         if teacher_type not in teacher_types:
@@ -45,13 +49,13 @@ class feedbackModel:
         self.default_label = shuffled_y[i]
         self.default_explanation = preprocessed_data[i]
         
-        print(f"default_label = {self.default_label}\ndefault explanation =\n{self.default_explanation}\n")
+        # print(f"default_label = {self.default_label}\ndefault explanation =\n{self.default_explanation}\n")
 
         # initialize prediction list for debugging purposes
         prediction_list = []
 
         self.f.write("-------------------- training --------------------\n\n")
-        for features in preprocessed_data:
+        for features in tqdm(preprocessed_data):
             # predict
             prediction, explanation, law = self.__predict(features)
 
@@ -105,6 +109,10 @@ class feedbackModel:
         # calculate the percentage of mistakes made
         percent_mistakes = [(m / e) * 100 for m, e in zip(self.mistakes_made, examples_seen)]
 
+        # if there is more than one figure, make sure we plot on the last one created
+        last_figure = plt.gcf()
+        plt.figure(last_figure.number)  # Set the current figure to the last one
+        
         # create a line plot
         plt.plot(examples_seen, percent_mistakes)
 
@@ -148,11 +156,11 @@ class feedbackModel:
                 closest_expl = explanation
                 closest_law = law
                 
-        print(f"\n\nexample = {features}\n")
+        # print(f"\n\nexample = {features}\n")
         
-        if closest_law:
-            print(f"law-> explanation =\n{closest_law.getExplanation()}\n"
-                f"      features =\n{closest_law.getFeatures()}\n"
-                f"      label = {closest_law.getLabel()}\n")
+        # if closest_law:
+        #     print(f"law-> explanation =\n{closest_law.getExplanation()}\n"
+        #         f"      features =\n{closest_law.getFeatures()}\n"
+        #         f"      label = {closest_law.getLabel()}\n")
         
         return closest_pred, closest_expl, None

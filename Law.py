@@ -23,10 +23,10 @@ class Law:
         # create a boolean mask to check if the condition holds true for each (i, v) tuple
         # mask = [new_sample[i] == v for i, v in self.features]
 
-        print(f"in isFitting:\nnew_sample = {new_sample}\n")
-        print(f"law-> explanation =\n{self.explanation}\n"
-                f"      features =\n{self.discriminative_features}\n"
-                f"      label = {self.label}\n")
+        # print(f"in isFitting:\nnew_sample = {new_sample}\n")
+        # print(f"law-> explanation =\n{self.explanation}\n"
+        #         f"      features =\n{self.discriminative_features}\n"
+        #         f"      label = {self.label}\n")
         
         
         mask = np.all(new_sample[self.discriminative_features[0, :]] == self.discriminative_features[1, :])

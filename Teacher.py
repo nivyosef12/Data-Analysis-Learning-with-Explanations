@@ -6,17 +6,21 @@ from sklearn.impute import SimpleImputer
 
 
 class Teacher(ABC):
-    max_num_of_feature_categories = 100 # max number of categories that we consider  as discrete
-    num_of_buckets_for_continuous_features = 100 # number of buckets we create for continuous value categories
-
     """
         @:param X are a d dimensional vector containing 0 or 1
         @:param labels are a label in some set of possible labels corresponding with X
                         i.e. feature[i] are labeled a label[i]
+        @:param max_num_of_feature_categories is the max number of categories that we consider as discrete
+        @:param num_of_buckets_for_continuous_features is the number of buckets we create for continuous value categories
     """
-    def __init__(self, X, labels):
+    def __init__(self, X, labels, max_num_of_feature_categories=100, num_of_buckets_for_continuous_features=100):
+        self.max_num_of_feature_categories = max_num_of_feature_categories  
+        self.num_of_buckets_for_continuous_features = num_of_buckets_for_continuous_features  
+        
+        # print(f"X.shape before = {X.shape}")
         self.X = self.preprocess(X)
-
+        # print(f"X.shape after = {self.X.shape}")
+        
         self.features_labels_dict = {}
         for features, label in zip(self.X, labels):
 
@@ -47,7 +51,11 @@ class Teacher(ABC):
         for i in range(X.shape[1]):
             col = X[:, i]
 
-            if col.dtype == np.bool_:
+            if np.array_equal(col, col.astype(bool)):
+                # Binary attribute
+                col_binary = col
+            
+            elif col.dtype == np.bool_:
                 # Boolean attribute
                 col_binary = col.astype(int)
 

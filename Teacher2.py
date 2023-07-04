@@ -4,6 +4,9 @@ from Teacher import Teacher
 
 
 class Teacher2(Teacher):
+    # def __init__(self, X, labels):
+    #     super().__init__(X, labels)
+    
     """
         @:param example is the example the algorithm gets (on each iteration) during the learning phase
                 IMPORTANT -> example is already preprocessed!!!
@@ -40,16 +43,16 @@ class Teacher2(Teacher):
     """
     def mostDiscriminativeFeature(self, example, explanation, prediction, true_label):
         different_indexes = np.where(example != explanation)[0]
-        print(f"--------------------------------------\ndifferent indexes: {different_indexes}\n")
+        # print(f"--------------------------------------\ndifferent indexes: {different_indexes}\n")
         max_difference = 0
         chosen_discriminative_feature = None
         for i in different_indexes:
             difference = self.discriminativeFeatureScore(example, prediction, true_label, i)
             if difference >= max_difference:
-                print(f"difference for index {i} is {difference}\n")
+                # print(f"difference for index {i} is {difference}\n")
                 max_difference = difference
                 chosen_discriminative_feature = [i, example[i]]
-        print(f"max difference = {max_difference}, chosen_discriminative_feature = {chosen_discriminative_feature}\n")
+        # print(f"max difference = {max_difference}, chosen_discriminative_feature = {chosen_discriminative_feature}\n")
         
         if max_difference != 0 and chosen_discriminative_feature is None:
             print("\nproblem!!\n")
