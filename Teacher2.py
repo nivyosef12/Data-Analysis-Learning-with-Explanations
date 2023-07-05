@@ -3,8 +3,9 @@ from Teacher import Teacher
 
 
 class Teacher2(Teacher):
-    # def __init__(self, X, labels):
-    #     super().__init__(X, labels)
+    def __init__(self, X, labels):
+        super().__init__(X, labels)
+                    
     
     """
         @:param example is the example the algorithm gets (on each iteration) during the learning phase
@@ -48,10 +49,6 @@ class Teacher2(Teacher):
                 max_difference = difference
                 chosen_discriminative_feature = [i, example[i]]
         
-        if max_difference != 0 and chosen_discriminative_feature is None:
-            print("\nproblem!!\n")
-            exit(0)
-        
         return chosen_discriminative_feature
 
 
@@ -65,11 +62,12 @@ class Teacher2(Teacher):
         @:returns a discriminative_feature in case the predication != to the true label
     """
     def discriminativeFeatureScore(self, example, prediction, true_label, i):
+        
         num_of_stsfyng_exmpls_with_prediction = len(
-            {k: v for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == prediction})
+            [1 for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == prediction])
        
         num_of_stsfyng_exmpls_with_true_label = len(
-            {k: v for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == true_label})
+            [1 for k, v in self.features_labels_dict.items() if k[i] == example[i] and v == true_label])
 
         prediction_percentage = num_of_stsfyng_exmpls_with_prediction / len(self.features_labels_dict)
         true_label_percentage = num_of_stsfyng_exmpls_with_true_label / len(self.features_labels_dict)

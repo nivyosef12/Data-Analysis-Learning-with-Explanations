@@ -13,12 +13,12 @@ class Teacher(ABC):
         @:param max_num_of_feature_categories is the max number of categories that we consider as discrete
         @:param num_of_buckets_for_continuous_features is the number of buckets we create for continuous value categories
     """
-    def __init__(self, X, labels, max_num_of_feature_categories=100, num_of_buckets_for_continuous_features=100):
+    def __init__(self, X, labels, max_num_of_feature_categories=20, num_of_buckets_for_continuous_features=10):
         self.max_num_of_feature_categories = max_num_of_feature_categories  
         self.num_of_buckets_for_continuous_features = num_of_buckets_for_continuous_features  
         
         self.X = self.preprocess(X)
-        print(f"self.X.shape = {self.X.shape}\n")
+
         self.features_labels_dict = {}
         for features, label in zip(self.X, labels):
 
