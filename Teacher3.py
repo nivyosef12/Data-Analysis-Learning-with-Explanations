@@ -6,7 +6,7 @@ from random import choice, sample, randrange
 
 
 class Teacher3(Teacher):
-    def __init__(self, X, labels, num_of_teachers=5, sample_percentage=0.6):
+    def __init__(self, X, labels, num_of_teachers=5, sample_percentage=0.8):
         self.num_of_teachers = num_of_teachers  # number of teachers in the ensemble
         self.sample_percentage = sample_percentage  # percentage of samples to input to each teacher
         super().__init__(X, labels)

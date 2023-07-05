@@ -18,11 +18,12 @@ class Teacher(ABC):
         self.num_of_buckets_for_continuous_features = num_of_buckets_for_continuous_features  
         
         self.X = self.preprocess(X)
+        print(f"self.X.shape = {self.X.shape}\n")
         self.features_labels_dict = {}
         for features, label in zip(self.X, labels):
 
             # by putting continuous values in buckets, we might end up with 2 identical feature vectors with different labels
-            if tuple(features) in self.features_labels_dict:
+            if tuple(features) in self.features_labels_dict and label != self.features_labels_dict[tuple(features)]:
                 print("features override in features_labels_dict")
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
