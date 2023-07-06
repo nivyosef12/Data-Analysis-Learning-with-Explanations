@@ -1,0 +1,5 @@
+# run the Python script for Part A with parameter 'A'
+python3 main.py 'A'
+
+# exit the script
+exit 0

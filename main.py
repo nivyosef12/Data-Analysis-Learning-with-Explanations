@@ -2,6 +2,8 @@ import feedbackModel as fm
 from pandas import read_csv
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+import os
 
 
 def plot(examples_seen, percent_mistakes, label=""):
@@ -24,7 +26,7 @@ def tune_teacher3(X, y):
         print(f"\nTeacher3_optimized=True_with_params=({num_of_teachers}, {sample_percentage}):\n")
         for j in range(1, 6):
             print(f"tune run{j}")
-            f_name = f"outputs/tune_reslts/Teacher3_optimized=True_with_params=({num_of_teachers}, {sample_percentage})_output{j}.txt"
+            f_name = f"tmp/tune_reslts/Teacher3_optimized=True_with_params=({num_of_teachers}, {sample_percentage})_output{j}.txt"
             model = fm.feedbackModel(output_file_name=f_name, optimized=True)
             curr.append(tuple(model.fit(X, y, num_of_teachers, sample_percentage, 3)))
 
@@ -32,7 +34,7 @@ def tune_teacher3(X, y):
 
     # ------------------- plotting -------------------
     for num_of_teachers, sample_percentage in params:
-        png_name = f"outputs/tune_reslts/Teacher3_optimized=True_with_params=({num_of_teachers}, {sample_percentage}).png"
+        png_name = f"tmp/tune_reslts/Teacher3_optimized=True_with_params=({num_of_teachers}, {sample_percentage}).png"
 
         curr_result = tune_results[num_of_teachers, sample_percentage]
         for examples_seen, percent_mistakes in curr_result:
@@ -66,7 +68,7 @@ def tune_teacher3(X, y):
     plt.legend()
 
     # save as .png file
-    plt.savefig(f"outputs/tune_reslts/Avarage_mistakes_made.png")
+    plt.savefig(f"tmp/tune_reslts/Avarage_mistakes_made.png")
 
     # create a figure for this teacher and optimized option
     plt.figure()
@@ -83,7 +85,7 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
             print(f"\nTeacher{i}_optimized={optimized}:\n")
             for j in range(1, 6):
                 print(f"run{j}")
-                f_name = f"outputs/{dataset_name}_dataset/Teacher{i}_optimized={optimized}_output{j}.txt"
+                f_name = f"tmp/{dataset_name}_dataset/Teacher{i}_optimized={optimized}_output{j}.txt"
                 model = fm.feedbackModel(output_file_name=f_name, optimized=optimized)
                 curr.append(tuple(model.fit(X, y, i)))
 
@@ -93,7 +95,7 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
 
     for optimized in optimized_lst:
         for i in range(1, num_of_teachers + 1):
-            png_name = f"outputs/{dataset_name}_dataset/Teacher{i}_optimized={optimized}.png"
+            png_name = f"tmp/{dataset_name}_dataset/Teacher{i}_optimized={optimized}.png"
 
             curr_result = model_results[i, optimized]
             for examples_seen, percent_mistakes in curr_result:
@@ -127,7 +129,7 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
     plt.legend()
 
     # save as .png file
-    plt.savefig(f"outputs/{dataset_name}_dataset/Avarage_mistakes_made.png")
+    plt.savefig(f"tmp/{dataset_name}_dataset/Avarage_mistakes_made.png")
 
     # create a figure for this teacher and optimized option
     plt.figure()
@@ -149,51 +151,72 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
             plt.legend()
 
             # save as .png file
-            plt.savefig(f"outputs/{dataset_name}_dataset/Avarage_mistakes_made by teacher{i + 1}.png")
+            plt.savefig(f"tmp/{dataset_name}_dataset/Avarage_mistakes_made by teacher{i + 1}.png")
 
             # create a figure for this teacher and optimized option
             plt.figure()
 
 
 if __name__ == "__main__":
+
+    # get the current working directory
+    current_dir = os.getcwd()
+
+    # create the folder path
+    folder_path = os.path.join(current_dir, "tmp")
+
+    # check if the folder already exists and create
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+    # get the parameter from the command-line argument
+    part_to_run = 'A'
+    if len(sys.argv) > 1:
+        part_to_run = sys.argv[1]
+
     # ------------------- Part A -------------------
-    print("-----------------------Part A-------------------------\n\n")
+    if part_to_run == 'A':
+        print("-----------------------Part A-------------------------\n\n")
 
-    print("Zoo:\n")
+        print("Zoo:\n")
 
-    # read the .data file into a Pandas DataFrame, specifying the delimiter
-    dataset_name = 'zoo'
-    df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
+        # read the .data file into a Pandas DataFrame, specifying the delimiter
+        dataset_name = 'zoo'
+        df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
 
-    # extract input features (X) and target variable (y)
-    X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
-    y = df.iloc[:, -1].values   # extract the last column as the target variable (y)
+        # extract input features (X) and target variable (y)
+        X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
+        y = df.iloc[:, -1].values   # extract the last column as the target variable (y)
 
-    compareTeachers(X, y, [False], 2, dataset_name)
+        compareTeachers(X, y, [False], 2, dataset_name)
 
-    print("Nursery:\n")
+        print("Nursery:\n")
 
-    dataset_name = 'nursery'
-    df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
+        dataset_name = 'nursery'
+        df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
 
-    # extract input features (X) and target variable (y)
-    X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
-    y = df.iloc[:, -1].values   # extract the last column as the target variable (y)
+        # extract input features (X) and target variable (y)
+        X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
+        y = df.iloc[:, -1].values   # extract the last column as the target variable (y)
 
-    compareTeachers(X, y, [False], 2, dataset_name)
+        compareTeachers(X, y, [False], 2, dataset_name)
 
     # ------------------- Part B -------------------
+    elif part_to_run == 'B':
+        print("-----------------------Part B-------------------------\n\n")
+        # tune_teacher3(X, y)
 
-    print("-----------------------Part B-------------------------\n\n")
-    # tune_teacher3(X, y)
+        print("wifi_localization:\n")
 
-    print("wifi_localization:\n")
+        dataset_name = 'wifi_localization'
+        df = read_csv(f'datasets/{dataset_name}.txt', delimiter='\t', header=None)
 
-    dataset_name = 'wifi_localization'
-    df = read_csv(f'datasets/{dataset_name}.txt', delimiter='\t', header=None)
+        # extract input features (X) and target variable (y)
+        X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
+        y = df.iloc[:, -1].values  # extract the last column as the target variable (y)
 
-    # extract input features (X) and target variable (y)
-    X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
-    y = df.iloc[:, -1].values  # extract the last column as the target variable (y)
+        compareTeachers(X, y, [False, True], 4, dataset_name)
 
-    compareTeachers(X, y, [False, True], 4, dataset_name)
+    else:
+        print("run option not supported")
+        exit(1)
