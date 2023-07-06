@@ -133,25 +133,26 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
     plt.figure()
 
     # plot mean of each teacher
-    for i in range(0, num_of_teachers):
-        not_optimized_res = mean_results[i]
-        optimized_res = mean_results[i + num_of_teachers]
-        plot(not_optimized_res[0], not_optimized_res[1], not_optimized_res[2])
-        plot(optimized_res[0], optimized_res[1], optimized_res[2])
+    if len(optimized_lst) == 2:
+        for i in range(0, num_of_teachers):
+            not_optimized_res = mean_results[i]
+            optimized_res = mean_results[i + num_of_teachers]
+            plot(not_optimized_res[0], not_optimized_res[1], not_optimized_res[2])
+            plot(optimized_res[0], optimized_res[1], optimized_res[2])
 
-        # set the title and axis labels
-        plt.title(f"Mistakes made over time of teachers on {dataset_name}")
-        plt.xlabel("Examples seen")
-        plt.ylabel("Percentage of mistakes")
+            # set the title and axis labels
+            plt.title(f"Mistakes made over time of teachers on {dataset_name}")
+            plt.xlabel("Examples seen")
+            plt.ylabel("Percentage of mistakes")
 
-        # add a legend to distinguish between graphs
-        plt.legend()
+            # add a legend to distinguish between graphs
+            plt.legend()
 
-        # save as .png file
-        plt.savefig(f"outputs/{dataset_name}_dataset/Avarage_mistakes_made by teacher{i + 1}.png")
+            # save as .png file
+            plt.savefig(f"outputs/{dataset_name}_dataset/Avarage_mistakes_made by teacher{i + 1}.png")
 
-        # create a figure for this teacher and optimized option
-        plt.figure()
+            # create a figure for this teacher and optimized option
+            plt.figure()
 
 
 if __name__ == "__main__":
