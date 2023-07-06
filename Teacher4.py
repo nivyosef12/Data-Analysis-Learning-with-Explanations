@@ -1,8 +1,9 @@
 import numpy as np
 from Teacher import Teacher
+from random import choice
 
 
-class Teacher2(Teacher):
+class Teacher4(Teacher):
     def __init__(self, X, labels):
         super().__init__(X, labels)
 
@@ -26,7 +27,7 @@ class Teacher2(Teacher):
             return true_label, None
         
         chosen_discriminative_feature = self.mostDiscriminativeFeature(example, explanation, prediction, true_label)
-        return true_label, chosen_discriminative_feature  
+        return true_label, np.array(chosen_discriminative_feature, dtype=int)
 
 
     """
@@ -40,16 +41,33 @@ class Teacher2(Teacher):
     """
     def mostDiscriminativeFeature(self, example, explanation, prediction, true_label):
         different_indexes = np.where(example != explanation)[0]
-        max_difference = 0
-        chosen_discriminative_feature = None
-        for i in different_indexes:
-            difference = self.discriminativeFeatureScore(example, prediction, true_label, i)
-           
-            if difference >= max_difference:
-                max_difference = difference
-                chosen_discriminative_feature = [i, example[i]]
         
-        return chosen_discriminative_feature
+        # randomly select a number of discriminative features, with a higher probability of selecting a lower number
+        probabilities = np.array([x**3 for x in range(-len(different_indexes), 0)], dtype=float)
+        probabilities /= np.sum(probabilities)
+        num_of_dfs = np.random.choice(list(range(1, len(different_indexes)+1)), p=probabilities)
+                
+        chosen_dfs = np.empty((0,), dtype=int)
+        differences = np.empty((0,))
+        min_difference = 0
+        for i in different_indexes:
+            
+            difference = self.discriminativeFeatureScore(example, prediction, true_label, i)
+            
+            if chosen_dfs.shape[0] < num_of_dfs:
+                # if we haven't chosen enough features yet
+                chosen_dfs = np.append(chosen_dfs, [i])
+                differences = np.append(differences, difference)
+                
+            elif difference > min_difference:
+                # if this feature is better than the worst feature in chosen_dfs
+                min_index = np.argmin(differences)
+                differences[min_index] = difference
+                chosen_dfs[min_index] = i
+                min_difference = np.min(differences)
+                
+        output = [[i, example[i]] for i in chosen_dfs.tolist()]
+        return output
 
 
     """

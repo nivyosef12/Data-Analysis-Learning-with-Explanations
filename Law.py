@@ -11,7 +11,7 @@ class Law:
     def __init__(self, explanation, label, discriminative_feature):
         self.explanation = explanation  
         self.label = label
-        self.discriminative_features = np.array([discriminative_feature], dtype=int).T  # a single column for now
+        self.discriminative_features = np.array(discriminative_feature, dtype=int).T  # a single column for now
 
 
     """
@@ -21,8 +21,7 @@ class Law:
     """
     def isFitting(self, new_sample):
         # create a boolean mask to check if the condition holds true for each (i, v) tuple
-                
-        mask = np.all(new_sample[self.discriminative_features[0, :]] == self.discriminative_features[1, :])
+        mask = np.all(new_sample[self.discriminative_features[0]] == self.discriminative_features[1])
         return mask
     
     
@@ -39,7 +38,7 @@ class Law:
                             now its {1, 0}
     """
     def updateFeatures(self, discriminative_feature):
-        self.discriminative_features = np.hstack((self.discriminative_features, np.array([discriminative_feature], dtype=int).T))
+        self.discriminative_features = np.hstack((self.discriminative_features, discriminative_feature.T))
 
     def getExplanation(self):
         return self.explanation

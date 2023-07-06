@@ -55,26 +55,24 @@ class Teacher3(Teacher):
             return true_label, None
         
         results = {}
-        teachers_without_example = 0
         for teacher in self.teachers:            
             label, discriminative_feature = teacher.teach(example, explanation, prediction)
             if(label == None):
-                teachers_without_example += 1
                 continue
             
             # get the score of the selected discriminative feature
             # this tells us how good this teacher thinks it's discriminative feature is
-            df_score = teacher.discriminativeFeatureScore(example, prediction, true_label, discriminative_feature[0]) 
+            df_score = teacher.discriminativeFeatureScore(example, prediction, true_label, discriminative_feature[0][0]) 
             
-            if(discriminative_feature[0] in results):
-                results[discriminative_feature[0]] += df_score
+            if(discriminative_feature[0][0] in results):
+                results[discriminative_feature[0][0]] += df_score
             else:
-                results[discriminative_feature[0]] = df_score
+                results[discriminative_feature[0][0]] = df_score
         
-        if not results:
-            for teacher in self.teachers:            
-                label, discriminative_feature = teacher.teach(example, explanation, prediction)            
+        # if not results:
+        #     for teacher in self.teachers:            
+        #         label, discriminative_feature = teacher.teach(example, explanation, prediction)            
              
         chosen_index = max(results, key=results.get) # get the best discriminative feature based on all the teachers
-        return true_label, [chosen_index, example[chosen_index]]
+        return true_label, np.array([[chosen_index, example[chosen_index]]], dtype=int)
         

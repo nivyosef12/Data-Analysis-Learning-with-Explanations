@@ -24,4 +24,4 @@ class Teacher1(Teacher):
         # get random discriminative feature
         different_indexes = np.where(example != explanation)[0]
         chosen_index = np.random.choice(different_indexes)
-        return true_label, [chosen_index, example[chosen_index]]
+        return true_label, np.array([[chosen_index, example[chosen_index]]], dtype=int)

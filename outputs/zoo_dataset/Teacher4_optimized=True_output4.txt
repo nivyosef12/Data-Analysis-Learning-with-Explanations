@@ -1,0 +1,915 @@
+-------------------- training --------------------
+
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 0 1 0]
+predicted: 1, with the explanation of
+[0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+predicted: 1, with the explanation of
+[0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 7 with [[ 4  0]
+ [16  0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 6 with [[14  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 1 with [[13  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 3 with [[9 0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1 0 0 1 0 1 1 1 1 1 0 1 1 0 0 0 0
+ 0 0 0 1]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 1 with [[13  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 1 with [[13  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 1 0 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 4 with [[18  1]
+ [17  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 6 with [[26  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 3 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 0 0 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with [[11  1]
+ [23  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 5 with [[15  1]
+ [22  0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 2 with [[11  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with [[21  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 1 0 0 0 1 0 0
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 5 with [[9 0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 1 1 0 0 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 5, with the explanation of
+[0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 1 0 0 0 1 0 0
+ 0 0 0 0]
+the teacher response is: 7 with [[17  0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 1
+ 0 0 1 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 6 with [[14  1]
+ [26  1]
+ [10  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 1 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 1 0 1 1 1 0 0 0 0 1 0 0
+ 0 0 0 0]
+predicted: 5, with the explanation of
+[0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 1 0 0 0 1 0 0
+ 0 0 0 0]
+the teacher response is: 5 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 1 0 0 0
+ 0 0 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 1 0 1 0 0 0 0
+ 0 1 0 0]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 3 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 1 0 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 1 1 0 0 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 1 1 0 0 0 1 0 1 0 0 0 0
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 1 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 1 1 0 0 0 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 1 0 0
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 6 with [[26  1]
+ [ 9  0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 6, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 1
+ 0 0 1 0]
+the teacher response is: 6 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 3 with [[18  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 1 0 1 1 1 1 1 0 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 0 0 0 1 1 1 1 0 1 0 1 0 0 0 0
+ 0 1 0 0]
+predicted: 5, with the explanation of
+[0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 1 0 0 0 1 0 0
+ 0 0 0 0]
+the teacher response is: 3 with [[28  1]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 6, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+the teacher response is: 6 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 0 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0
+ 0 0 0 0]
+predicted: 3, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 1 0 0 0 1 1 1 1 0 0 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 7 with [[18  0]
+ [28  0]
+ [17  0]] as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0
+ 1 1 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 0 0 1 1 0 0 1 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0 0 0 1 0 1 1 1 1 1 0 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 6, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 1
+ 0 0 1 0]
+the teacher response is: 6 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 0 0 0 0 1 0 0
+ 0 0 0 0]
+predicted: 5, with the explanation of
+[0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 1 1 0 0 0 1 0 0
+ 0 0 0 0]
+the teacher response is: 5 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 0 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0
+ 0 0 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 0 1 1 0 0 1 1 0 0 0 0
+ 0 1 1 0]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 1 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+ 1 0 0 1]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 1 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 1 0 0 1 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 1 1 1 1 0 1 1 1 0 0 0 0
+ 0 1 0 1]
+predicted: 4, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0
+ 0 1 0 0]
+the teacher response is: 4 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+predicted: 1, with the explanation of
+[1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 1 0 0
+ 0 1 0 1]
+the teacher response is: 1 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 1 1 0 1 1 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 1]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0
+ 0 1 1 0]
+predicted: 2, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 0 0 0
+ 0 1 0 0]
+the teacher response is: 2 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1
+ 0 0 0 0]
+predicted: 6, with the explanation of
+[0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 1
+ 0 0 1 0]
+the teacher response is: 6 with None as discriminative feature
+
+-------------------- curr iteration information --------------------
+the example: [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 1 0
+ 0 0 0 0]
+predicted: 7, with the explanation of
+[0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0
+ 0 0 0 0]
+the teacher response is: 7 with None as discriminative feature
+
+-------------------- printing the final decision list --------------------
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 4	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 3,	true label: 1	--> WRONG
+prediction: 7,	true label: 4	--> WRONG
+prediction: 7,	true label: 4	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 7,	true label: 1	--> WRONG
+prediction: 3,	true label: 2	--> WRONG
+prediction: 3,	true label: 4	--> WRONG
+prediction: 1,	true label: 7	--> WRONG
+prediction: 3,	true label: 7	--> WRONG
+prediction: 1,	true label: 7	--> WRONG
+prediction: 7,	true label: 2	--> WRONG
+prediction: 3,	true label: 1	--> WRONG
+prediction: 7,	true label: 4	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 5,	true label: 2	--> WRONG
+prediction: 7,	true label: 2	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 2,	true label: 2	--> RIGHT
+prediction: 2,	true label: 6	--> WRONG
+prediction: 2,	true label: 5	--> WRONG
+prediction: 2,	true label: 5	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 5,	true label: 1	--> WRONG
+prediction: 4,	true label: 6	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 3,	true label: 2	--> WRONG
+prediction: 1,	true label: 4	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 4,	true label: 1	--> WRONG
+prediction: 2,	true label: 2	--> RIGHT
+prediction: 2,	true label: 4	--> WRONG
+prediction: 1,	true label: 6	--> WRONG
+prediction: 2,	true label: 6	--> WRONG
+prediction: 4,	true label: 2	--> WRONG
+prediction: 1,	true label: 6	--> WRONG
+prediction: 4,	true label: 2	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 7	--> WRONG
+prediction: 4,	true label: 1	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 4,	true label: 1	--> WRONG
+prediction: 7,	true label: 6	--> WRONG
+prediction: 2,	true label: 5	--> WRONG
+prediction: 7,	true label: 7	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 6,	true label: 1	--> WRONG
+prediction: 7,	true label: 2	--> WRONG
+prediction: 1,	true label: 2	--> WRONG
+prediction: 1,	true label: 2	--> WRONG
+prediction: 5,	true label: 2	--> WRONG
+prediction: 1,	true label: 4	--> WRONG
+prediction: 6,	true label: 4	--> WRONG
+prediction: 1,	true label: 3	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 3,	true label: 1	--> WRONG
+prediction: 4,	true label: 1	--> WRONG
+prediction: 7,	true label: 1	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 2,	true label: 1	--> WRONG
+prediction: 1,	true label: 2	--> WRONG
+prediction: 1,	true label: 7	--> WRONG
+prediction: 4,	true label: 4	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 1,	true label: 3	--> WRONG
+prediction: 6,	true label: 7	--> WRONG
+prediction: 5,	true label: 2	--> WRONG
+prediction: 1,	true label: 2	--> WRONG
+prediction: 4,	true label: 3	--> WRONG
+prediction: 1,	true label: 7	--> WRONG
+prediction: 7,	true label: 4	--> WRONG
+prediction: 4,	true label: 2	--> WRONG
+prediction: 1,	true label: 1	--> RIGHT
+prediction: 7,	true label: 7	--> RIGHT
+prediction: 1,	true label: 4	--> WRONG
+prediction: 2,	true label: 2	--> RIGHT
+prediction: 1,	true label: 6	--> WRONG
+prediction: 1,	true label: 5	--> WRONG
+prediction: 2,	true label: 3	--> WRONG
+prediction: 1,	true label: 3	--> WRONG
+prediction: 1,	true label: 4	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 4,	true label: 1	--> WRONG
+prediction: 1,	true label: 2	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 2,	true label: 6	--> WRONG
+prediction: 2,	true label: 1	--> WRONG
+prediction: 6,	true label: 7	--> WRONG
+prediction: 7,	true label: 2	--> WRONG
+
+percentage of mistake on the entire data set: 19 / 100 = 19.0%

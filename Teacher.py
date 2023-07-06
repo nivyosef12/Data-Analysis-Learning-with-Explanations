@@ -24,7 +24,8 @@ class Teacher(ABC):
 
             # by putting continuous values in buckets, we might end up with 2 identical feature vectors with different labels
             if tuple(features) in self.features_labels_dict and label != self.features_labels_dict[tuple(features)]:
-                print("features override in features_labels_dict")
+                print("features override in features_labels_dict:\n")
+                print(f"the example\n{features}\nappears twice with different labels {label}, {self.features_labels_dict[tuple(features)]}\n")
                 exit(1)
             self.features_labels_dict[tuple(features)] = label
 

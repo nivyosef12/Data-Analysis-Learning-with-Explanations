@@ -3,6 +3,7 @@ from Law import Law
 from Teacher1 import Teacher1
 from Teacher2 import Teacher2
 from Teacher3 import Teacher3
+from Teacher4 import Teacher4
 from sklearn.metrics import accuracy_score
 # from sklearn.utils import shuffle
 from random import randint
@@ -33,7 +34,7 @@ class feedbackModel:
         shuffled_X = X[indexes]
         shuffled_y = y[indexes]
 
-        teacher_types = {1: Teacher1, 2: Teacher2, 3:Teacher3}
+        teacher_types = {1: Teacher1, 2: Teacher2, 3:Teacher3, 4:Teacher4}
         if teacher_type not in teacher_types:
             raise ValueError("Invalid teacher_type value")
 
@@ -77,8 +78,8 @@ class feedbackModel:
 
                 else:
                     # update the law
-                    not_discriminative_feature = np.array([discriminative_feature[0], 1 - discriminative_feature[1]])
-                    law.updateFeatures(not_discriminative_feature)
+                    discriminative_feature[:, 1] = 1 - discriminative_feature[:, 1]
+                    law.updateFeatures(discriminative_feature)
 
             # for generating the graph
             self.mistakes_made.append(self.num_of_mistakes)

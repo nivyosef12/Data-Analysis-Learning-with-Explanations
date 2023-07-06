@@ -141,9 +141,9 @@ if __name__ == "__main__":
     
     # print("Zoo:\n")
     
-    # # read the .data file into a Pandas DataFrame, specifying the delimiter
+    # read the .data file into a Pandas DataFrame, specifying the delimiter
     # dataset_name = 'zoo'
-    # df = read_csv(f'{dataset_name}.data', delimiter=',')
+    # df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
 
     # # extract input features (X) and target variable (y)
     # X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
@@ -154,7 +154,7 @@ if __name__ == "__main__":
     # print("Nursery:\n")
     
     # dataset_name = 'nursery'
-    # df = read_csv(f'{dataset_name}.data', delimiter=',')
+    # df = read_csv(f'datasets/{dataset_name}.data', delimiter=',')
 
     # # extract input features (X) and target variable (y)
     # X = df.iloc[:, :-1].values  # extract all columns except the last one as input features (X)
@@ -167,12 +167,8 @@ if __name__ == "__main__":
 
     print("-----------------------Part B-------------------------\n\n")
 
-    # print("online_shoppers_intention:\n")
-    
-    # dataset_name = 'online_shoppers_intention'
-    # df = read_csv(f'{dataset_name}.csv', delimiter=',')
-
-    
+    print("wifi_localization:\n")
+        
     dataset_name = 'wifi_localization'
     df = read_csv(f'datasets/{dataset_name}.txt', delimiter='\t', header=None)
     
@@ -193,5 +189,5 @@ if __name__ == "__main__":
     
     # print("no problem")
     
-    compareTeachers(X, y, [True, False], 3, dataset_name)
+    compareTeachers(X, y, [False, True], 4, dataset_name)
     # tune_teacher3(X, y)

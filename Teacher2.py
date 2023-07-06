@@ -26,7 +26,7 @@ class Teacher2(Teacher):
             return true_label, None
         
         chosen_discriminative_feature = self.mostDiscriminativeFeature(example, explanation, prediction, true_label)
-        return true_label, chosen_discriminative_feature  
+        return true_label, np.array([chosen_discriminative_feature], dtype=int)  
 
 
     """
