@@ -42,7 +42,7 @@ class Teacher4(Teacher):
         different_indexes = np.where(example != explanation)[0]
 
         # randomly select a number of discriminative features, with a higher probability of selecting a lower number
-        probabilities = np.array([x ** 3 for x in range(-len(different_indexes), 0)], dtype=float)
+        probabilities = np.array([x ** 4 for x in range(-len(different_indexes), 0)], dtype=float)
         probabilities /= np.sum(probabilities)
         num_of_dfs = np.random.choice(list(range(1, len(different_indexes) + 1)), p=probabilities)
 

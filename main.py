@@ -104,7 +104,7 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
                                  f"Teacher{i}_optimized={optimized}"))
 
             # set the title and axis labels
-            plt.title(f"Mistakes made over time of Teacher{i}_optimized={optimized}")
+            plt.title(f"Mistakes made over time of Teacher{i}_optimized={optimized} on {dataset_name}")
             plt.xlabel("Examples seen")
             plt.ylabel("Percentage of mistakes")
 
@@ -114,11 +114,12 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
             # create a figure for this teacher and optimized option
             plt.figure()
 
+    # plot mean of all teachers
     for examples_seen, percent_mistakes, label in mean_results:
         plot(examples_seen, percent_mistakes, label)
 
     # set the title and axis labels
-    plt.title("Mistakes made over time of teachers")
+    plt.title(f"Mistakes made over time of teachers on {dataset_name}")
     plt.xlabel("Examples seen")
     plt.ylabel("Percentage of mistakes")
 
@@ -131,9 +132,30 @@ def compareTeachers(X, y, optimized_lst, num_of_teachers, dataset_name):
     # create a figure for this teacher and optimized option
     plt.figure()
 
+    # plot mean of each teacher
+    for i in range(0, num_of_teachers):
+        not_optimized_res = mean_results[i]
+        optimized_res = mean_results[i + num_of_teachers]
+        plot(not_optimized_res[0], not_optimized_res[1], not_optimized_res[2])
+        plot(optimized_res[0], optimized_res[1], optimized_res[2])
+
+        # set the title and axis labels
+        plt.title(f"Mistakes made over time of teachers on {dataset_name}")
+        plt.xlabel("Examples seen")
+        plt.ylabel("Percentage of mistakes")
+
+        # add a legend to distinguish between graphs
+        plt.legend()
+
+        # save as .png file
+        plt.savefig(f"outputs/{dataset_name}_dataset/Avarage_mistakes_made by teacher{i + 1}.png")
+
+        # create a figure for this teacher and optimized option
+        plt.figure()
+
 
 if __name__ == "__main__":
-    # # ------------------- Part A -------------------
+    # ------------------- Part A -------------------
     print("-----------------------Part A-------------------------\n\n")
 
     print("Zoo:\n")
